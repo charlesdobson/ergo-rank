@@ -1,10 +1,11 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = {
   entry: ['react-hot-loader/patch', './src/index.js'],
-  devtool: 'inline-source-map',
+  devtool: '',
   module: {
     rules: [
       {
@@ -75,6 +76,7 @@ module.exports = {
       filename: 'index.html',
       template: path.resolve('./public/index.html'),
       favicon: './public/favicon.ico'
-    })
+    }),
+    new BundleAnalyzerPlugin()
   ]
 };
