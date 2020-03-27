@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: ['react-hot-loader/patch', './src/index.js'],
-  devtool: '',
+  devtool: 'inline-source-map',
   module: {
     rules: [
       {

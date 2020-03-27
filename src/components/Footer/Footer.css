@@ -3,6 +3,7 @@
     height: 8vh;
     margin-top: -8vh;
     background-color: #413f58;
+    position: absolute;
 
     display: flex;
     flex-flow: row wrap;

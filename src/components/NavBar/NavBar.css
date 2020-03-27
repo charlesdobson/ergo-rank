@@ -1,5 +1,5 @@
 .navigation-bar {
-    position: fixed;
+    position: absolute;
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-end;

@@ -41,14 +41,6 @@ const ResultsView = () => {
             <Card
               className="results-view-card"
               bordered={false}
-              style={{ backgroundColor: '#00d2d3' }}
-            >
-              <p className="results-view-card-grade">80%</p>
-              <p className="results-view-card-title">Desk</p>
-            </Card>
-            <Card
-              className="results-view-card"
-              bordered={false}
               style={{ backgroundColor: '#2e86de' }}
             >
               <p className="results-view-card-grade">72%</p>
