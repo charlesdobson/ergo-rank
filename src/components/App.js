@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { hot } from 'react-hot-loader';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-// import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import NavBar from 'src/components/NavBar/';
 import Footer from 'src/components/Footer';
 import HomeView from 'src/components/routes/HomeView';
@@ -64,7 +64,7 @@ const App = () => {
 
   return (
     <>
-      {/* <Helmet>
+      <Helmet>
         <meta charSet="utf-8" />
         <meta property="og:title" content="ErgoRank" />
         <meta property="og:type" content="website" />
@@ -74,7 +74,7 @@ const App = () => {
         />
         <meta property="og:image" content="https://imgur.com/aUgQhDV" />
         <meta property="og:url" content="https://ergorank.com/" />
-      </Helmet> */}
+      </Helmet>
       <Router>
         <NavBar />
 
