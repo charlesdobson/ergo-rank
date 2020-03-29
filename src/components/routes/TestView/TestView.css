@@ -5,25 +5,24 @@
 }
 
 .test-view-content {
-    height: 92%;
+    height: 100%;
     width: 100%;
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
 }
 
-.test-view-steps {
-    background-color: #ffffff;
-    width: 90vw;
-    padding: 4vh;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+.test-view-text-content p {
+    font-size: 1.5rem;
+    margin-bottom: 5vh;
 }
 
-.test-view-text-content p {
-    font-size: 1.5em;
-    margin-top: 5vh;
-    margin-bottom: 5vh;
+.test-view-steps {
+    background-color: #ffffff;
+    width: 80vw;
+    padding: 4vh;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 .steps-content {
@@ -33,7 +32,18 @@
     flex-flow: row wrap;
     justify-content: center;
 }
+
+.steps-content-form-item .ant-form-item-label {
+    white-space: normal;
+    margin-left: 0;
+    height: 4rem;
+}
   
 .steps-action {
-    margin-top: 2.5vh;
+    float: right;
+}
+
+/* Radio Button Text Sizing */
+.ant-form span {
+    font-size: 16px;
 }

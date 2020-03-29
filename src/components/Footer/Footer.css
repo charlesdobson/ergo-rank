@@ -1,9 +1,9 @@
 .homeview-footer {
-    width: 100%;
+    width: 100vw;
     height: 8vh;
     margin-top: -8vh;
     background-color: #413f58;
-    position: absolute;
+    position: fixed;
 
     display: flex;
     flex-flow: row wrap;
@@ -13,25 +13,16 @@
 
 .author-text {
     color: #f8f9fa;
+    font-size: 1.5rem;
+    vertical-align: middle;
 }
 
 .mappedin-logo {
     padding-left: 0.3vw;
     margin-bottom: 0.7vh;
-    height: 2.5vh;
+    height: 2.3rem;
 }
 
 .mappedin-logo:hover {
     filter: brightness(95%);
-}
-
-.mappedin-text {
-    color: #ff5c00;
-    font-weight: 600;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.mappedin-text:hover {
-    color: #ff9f43;
 }

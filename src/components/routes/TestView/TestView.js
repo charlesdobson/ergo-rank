@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
 import { Redirect } from 'react-router-dom';
 import { Button, Divider, Form, Radio, Steps } from 'antd';
@@ -15,16 +16,16 @@ const steps = [
     icon: <FaChair />,
     questions: [
       {
-        name: 'feet-supported',
+        name: 'chairFeetSupported',
         question:
           'Are your feet fully supported and flat on the floor when seated?'
       },
       {
-        name: 'back-supported',
+        name: 'chair-back-supported',
         question: "Is your back fully supported by your chair's backrest?"
       },
       {
-        name: 'armrest-adjustable',
+        name: 'chair-armrest-adjustable',
         question:
           'Do your armrests allow you to position yourself close to your workstation?'
       }
@@ -74,35 +75,30 @@ const steps = [
     icon: <GiHealthNormal />,
     questions: [
       {
-        name: 'eye-breaks',
+        name: 'health-eye-breaks',
         question: 'Do you take frequent breaks from looking at your monitor?'
       },
       {
-        name: 'physical-breaks',
+        name: 'health-physical-breaks',
         question: 'Do you take frequent breaks with light exercise?'
       },
       {
-        name: 'light-level',
+        name: 'health-light-level',
         question: 'Is your room lighting adequate for reading and writing?'
       }
     ]
   }
 ];
 
-const TestView = () => {
+const TestView = ({ onChange }) => {
   const [currentStep, setCurrentStep] = useState(0);
-  const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = values => {
-    console.log('Received values of form: ', values);
-    if (currentStep === steps.length - 1) {
-      setSubmitted(true);
-    } else {
-      setCurrentStep(currentStep + 1);
-    }
+    setCurrentStep(currentStep + 1);
+    onChange(steps[currentStep].title, values);
   };
 
-  return submitted ? (
+  return currentStep === 4 ? (
     <Redirect to="/results" />
   ) : (
     <>
@@ -125,20 +121,24 @@ const TestView = () => {
                 onFinish={handleSubmit}
                 onFinishFailed={() => {}}
                 hideRequiredMark
+                labelCol={{ span: 18 }}
+                wrapperCol={{ span: 6 }}
               >
                 {steps[currentStep].questions.map(q => (
                   <Form.Item
                     name={q.name}
                     label={q.question}
                     key={q.name}
-                    // wrapperCol={{ span: 16, offset: 2 }}
                     colon={false}
                     rules={[{ required: true, message: 'Required' }]}
+                    className="steps-content-form-item"
                   >
-                    <Radio.Group>
-                      <Radio value="yes">Yes</Radio>
-                      <Radio value="no">No</Radio>
-                    </Radio.Group>
+                    <div className="steps-radio-group">
+                      <Radio.Group>
+                        <Radio value={100}>Yes</Radio>
+                        <Radio value={0}>No</Radio>
+                      </Radio.Group>
+                    </div>
                   </Form.Item>
                 ))}
               </Form>
@@ -147,29 +147,34 @@ const TestView = () => {
               {currentStep < steps.length - 1 && (
                 <Button
                   type="primary"
+                  size="large"
                   form={`test-${steps[currentStep].title}-form`}
                   key="submit"
                   htmlType="submit"
                 >
-                  Next
+                  NEXT
                 </Button>
               )}
               {currentStep === steps.length - 1 && (
                 <Button
                   type="primary"
+                  size="large"
                   form={`test-${steps[currentStep].title}-form`}
                   key="submit"
                   htmlType="submit"
                 >
-                  Submit
+                  SUBMIT
                 </Button>
               )}
               {currentStep > 0 && (
                 <Button
+                  type="primary"
+                  ghost
+                  size="large"
                   style={{ marginLeft: 8 }}
                   onClick={() => setCurrentStep(currentStep - 1)}
                 >
-                  Previous
+                  PREVIOUS
                 </Button>
               )}
             </div>
@@ -178,6 +183,14 @@ const TestView = () => {
       </div>
     </>
   );
+};
+
+TestView.propTypes = {
+  onChange: PropTypes.func
+};
+
+TestView.defaultProps = {
+  onChange: () => {}
 };
 
 export default withRouter(TestView);

@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: ['react-hot-loader/patch', './src/index.js'],
-  devtool: 'inline-source-map',
+  devtool: '',
   module: {
     rules: [
       {
@@ -40,7 +40,9 @@ module.exports = {
                 'link-color': '#636b79',
                 'radio-button-bg': 'transparent',
                 'border-radius-base': '2px',
-                'border-color-base': '#8395a7'
+                'border-color-base': '#8395a7',
+                'font-size-base': '16px',
+                'radio-size': '18px'
               },
               javascriptEnabled: true
             }

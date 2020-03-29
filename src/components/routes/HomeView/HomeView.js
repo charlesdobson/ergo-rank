@@ -11,33 +11,46 @@ const HomeView = () => {
         <div className="home-view-content">
           <img src={desk} alt="chair" />
           <div className="content-text">
-            <p>Do you want to be comfortable at work? So do we!</p>
+            <p className="content-text-header">
+              Do you want to be comfortable while you work?
+            </p>
             <br />
-            <p>
-              That&apos;s why we created this&nbsp;
-              <span className="content-text-emphasis">
+            <br />
+            <p className="content-text-subtitle">
+              So do we! That&apos;s why we created this&nbsp;
+              <span className="content-text-subtitle-emphasis">
                 ergonomic assessment
               </span>
               &nbsp;tool.
             </p>
+            {/* <br />
+            <p className="content-text-description">
+              Whether you&apos;re setting up a work from home space, starting a
+              new job, or have never done an ergonomic assessment before,
+              ErgoRank can show you how to improve your setup.
+            </p> */}
             <br />
-            <p>
-              Take the&nbsp;
-              <Link to="/test" className="text-link">
-                test
-              </Link>
-              , make some adjustments, and see your ergonomic&nbsp;
-              <Link to="/results" className="text-link">
-                ranking
-              </Link>
-              &nbsp;climb!
+            <br />
+            <p className="content-text-command-statement">
+              <span className="content-text-command-statement-emphasis">
+                Take the test
+              </span>
+              , make some&nbsp;
+              <span className="content-text-command-statement-emphasis">
+                adjustments
+              </span>
+              , and see your&nbsp;
+              <span className="content-text-command-statement-emphasis">
+                ergonomic ranking&nbsp;
+              </span>
+              climb!
             </p>
             <br />
-            <div className="get-started-button">
-              <Link to="/test" className="text-link">
-                <Button type="primary">GET STARTED</Button>
-              </Link>
-            </div>
+            <Link to="/test">
+              <Button type="primary" size="large">
+                GET STARTED
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
@@ -46,3 +59,8 @@ const HomeView = () => {
 };
 
 export default HomeView;
+
+// Do you want to be comfortable while you work? So do we!
+// That’s why we created this ergonomic assessment tool.
+// Whether you’re setting up a work from home space, starting a new job, or have never done an ergonomic assessment before, ErgoRank can show you how to improve your setup.
+// Take the test, make some adjustments, and see your ergonomic ranking climb!

@@ -22,27 +22,38 @@
     max-width: 45vw;
 }
 
-.content-text p {
+.content-text-header {
     color: #282d37;
-    font-size: 1.2em;
+    font-size: 2.8rem;
+    line-height: 3.0rem;
 }
 
-.content-text-emphasis {
+.content-text-subtitle {
+    color: #282d37;
+    font-size: 1.4rem;
+    line-height: 1.7rem;
+}
+
+.content-text-subtitle-emphasis {
+    color: #282d37;
     font-weight: 600;
-    font-size: 1em;
+    font-size: 1.4rem;
 }
 
-.text-link {
-    text-decoration: none;
-    color: #2e86de;
+/* .content-text-description {
+    color: #282d37;
+    font-size: 1.1em;
+} */
+
+.content-text-command-statement {
+    color: #282d37;
+    font-size: 1.6rem;
+    font-weight: 300;
+    line-height: 2.0rem;
+}
+
+.content-text-command-statement-emphasis {
+    color: #282d37;
     font-weight: 500;
-    transition: 0.1s;
-}
-
-.text-link:hover {
-    color: #54a0ff;
-}
-
-.get-started-button {
-    text-align: center;
+    font-size: 1.5rem;
 }

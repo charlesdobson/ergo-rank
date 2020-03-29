@@ -1,5 +1,5 @@
 .navigation-bar {
-    position: absolute;
+    position: fixed;
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-end;
@@ -12,38 +12,11 @@
 .navigation-logo {
     margin-right: auto;  
     margin-left: 1.5vw;  
-    font-size: 2.7vh;
+    font-size: 1.7rem;
     font-weight: 600;
     color: #f8f9fa;
 }
 
-.navigation-logo img {
-    height: 6vh;
-
-}
-
-.link-button {
-    background-color: transparent;
-    color:#f8f9fa;
-    opacity: 0.9;
-
-    text-decoration: none;
-    transition: 0.1s;
-
-    margin: 0;
-    padding-bottom: 0.7vh;
-    margin-right: 1vw;
-
-    font-size: 2vh;
-    font-weight: 500;
-}
-
-.link-button:hover {
-    color:#e2e6eb;
-    opacity: .8;
-    border-bottom: 0.2vh solid#e2e6eb;
-}
-
-.link-button-active {
-    border-bottom: 0.2vh solid #f8f9fa;
+.navigation-logo:hover {
+    color: #f8f9fa;
 }
