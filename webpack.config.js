@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+// const StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin');
 
 module.exports = {
   entry: ['react-hot-loader/patch', './src/index.js'],
@@ -65,7 +66,8 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'build'),
     publicPath: '/',
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    globalObject: 'this'
   },
   devServer: {
     contentBase: './build',
@@ -78,5 +80,11 @@ module.exports = {
       template: path.resolve('./public/index.html'),
       favicon: './public/favicon.ico'
     })
+    // new StaticSiteGeneratorPlugin({
+    //   global: {
+    //     window: {}
+    //   },
+    //   crawl: true
+    // })
   ]
 };

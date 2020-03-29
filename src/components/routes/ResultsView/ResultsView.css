@@ -1,23 +1,33 @@
 .results-view {
     height: 100vh;
     width: 100vw;
-}
-
-.results-view img {
-    position: absolute;
-    height: 80%;
-    width: 100%;
-    opacity: 0.2;
-    z-index: -1;
+    background-color: #f8f9fa;
 }
 
 .results-view-content {
     height: 100%;
     width: 100%;
     display: flex;
-    flex-flow: column wrap;
-    padding-top: 20vh;
-    align-items: center;
+    flex-flow: row wrap;
+    padding-top: 15vh;
+    justify-content: space-evenly;
+}
+
+.results-view img {
+    /* position: absolute;
+    height: 80%;
+    width: 100%;
+    opacity: 0.2;
+    z-index: -1; */
+    padding: 0;
+    margin: 0;
+    max-height: 50%;
+}
+
+.results-view-results {
+    display: flex;
+    flex-flow: column nowrap;
+    /* justify-content: center; */
 }
 
 .results-view-overall-score {
@@ -54,7 +64,22 @@
     color: #f8f9fa;
 }
 
-.results-view-card-button {
-    font-size: 1em;
-    font-weight: 400;
+.results-view-share-button {
+    text-align: center;
+    padding-top: 3vh;
+}
+
+.results-view-improvements {
+    /* text-align: center; */
+    /* width: 35vw; */
+}
+
+.results-view-improvements p {
+    font-size: 1.3rem;
+    padding-bottom: 1vh;
+}
+
+.results-view-improvements-emphasis {
+    font-size: 1.3rem;
+    font-weight: 600;
 }
