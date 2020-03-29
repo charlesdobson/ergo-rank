@@ -6,6 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: ['react-hot-loader/patch', './src/index.js'],
   devtool: '',
+  // target: 'web',
   module: {
     rules: [
       {
@@ -66,12 +67,12 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'build'),
     publicPath: '/',
-    filename: 'bundle.js',
-    globalObject: 'this'
+    filename: 'bundle.js'
   },
   devServer: {
     contentBase: './build',
     port: 3000
+    // inline: false
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
@@ -81,9 +82,6 @@ module.exports = {
       favicon: './public/favicon.ico'
     })
     // new StaticSiteGeneratorPlugin({
-    //   global: {
-    //     window: {}
-    //   },
     //   crawl: true
     // })
   ]
