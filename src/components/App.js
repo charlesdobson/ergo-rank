@@ -71,7 +71,7 @@ const App = () => {
           property="og:description"
           content="An ergonomic assessment tool that helps you optimize your workspace setup"
         />
-        <meta property="og:image" content="public/assets/share-image.png" />
+        <meta property="og:image" content="https://imgur.com/aUgQhDV" />
         <meta property="og:url" content="https://ergorank.com/" />
       </Helmet>
       <Router>
