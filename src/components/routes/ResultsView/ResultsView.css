@@ -21,13 +21,15 @@
     z-index: -1; */
     padding: 0;
     margin: 0;
-    max-height: 50%;
+    max-height: 60%;
+    padding-top: 5vh;
 }
 
 .results-view-results {
     display: flex;
     flex-flow: column nowrap;
     /* justify-content: center; */
+    align-items: center;
 }
 
 .results-view-overall-score {
@@ -64,9 +66,16 @@
     color: #f8f9fa;
 }
 
-.results-view-share-button {
+.results-view-share-buttons {
     text-align: center;
     padding-top: 3vh;
+    min-width: 50vw;
+    padding-bottom: 10vh;
+}
+
+.results-view-share-buttons p {
+    font-size: 1.4rem;
+    font-weight: 500;
 }
 
 .results-view-improvements {

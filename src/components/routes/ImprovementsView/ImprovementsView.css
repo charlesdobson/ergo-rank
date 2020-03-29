@@ -1,0 +1,42 @@
+.improvements-view {
+    height: 100vh;
+    width: 100vw;
+    background-color: #f8f9fa;
+}
+
+.improvements-view-content {
+    height: 100%;
+    width: 100%;
+    padding: 10vh;
+    /* display: flex;
+    flex-flow: row wrap;
+    padding-top: 15vh;
+    justify-content: space-evenly; */
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    /* padding-top: 10vh; */
+    align-items: center;
+}
+
+.improvements-view-content p {
+    font-size: 1.6rem;
+    color: #282d37;
+    /* padding-bottom: 10vh; */
+}
+
+.improvements-view-individual-results {
+    margin-left: 5vw;
+    margin-right: 5vw;
+    /* width: 80vw;
+    height: 60vh; */
+    /* display: flex;
+    flex-flow: column nowrap;
+    justify-content: center; */
+    /* padding-top: 10vh; */
+    /* align-items: center; */
+}
+
+.ant-list-item-meta-title {
+    color: #282d37;
+}

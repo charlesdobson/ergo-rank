@@ -7,6 +7,7 @@ import Footer from 'src/components/Footer';
 import HomeView from 'src/components/routes/HomeView';
 import TestView from 'src/components/routes/TestView';
 import ResultsView from 'src/components/routes/ResultsView';
+import ImprovementsView from 'src/components/routes/ImprovementsView';
 import './App.css';
 
 const calculateScore = values => {
@@ -93,6 +94,9 @@ const App = () => {
               accessoriesQuestionResults={accessoriesQuestionResults}
               healthQuestionResults={healthQuestionResults}
             />
+          </Route>
+          <Route path="/improvements">
+            <ImprovementsView />
           </Route>
           <Route path="/">
             <HomeView />
