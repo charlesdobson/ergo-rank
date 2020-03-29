@@ -65,16 +65,13 @@ const App = () => {
     <>
       <Helmet>
         <meta charSet="utf-8" />
-        <meta property="og:title" content="Ergo Rank" />
+        <meta property="og:title" content="ErgoRank" />
         <meta property="og:type" content="website" />
         <meta
           property="og:description"
-          content="An ergonomic assessment tool that helps you optimize your desk setup"
+          content="An ergonomic assessment tool that helps you optimize your workspace setup"
         />
-        <meta
-          property="og:image"
-          content="https://cdn.pixabay.com/photo/2015/02/24/15/41/dog-647528_960_720.jpg"
-        />
+        <meta property="og:image" content="public/assets/share-image.png" />
         <meta property="og:url" content="https://ergorank.com/" />
       </Helmet>
       <Router>
