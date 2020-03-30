@@ -4,6 +4,7 @@
   status = 301
 
 [[redirects]]
-  from = "/fbclid=:fbclid"
+  from = "/"
   to = "/"
+  query = {fbclid = ":fbclid"}
   status = 301
