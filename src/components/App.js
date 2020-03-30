@@ -72,15 +72,15 @@ const App = () => {
           property="og:description"
           content="An ergonomic assessment tool that helps you optimize your workspace setup"
         />
-        <meta property="og:image" content="https://imgur.com/aUgQhDV" />
+        <meta property="og:image" content="https://i.imgur.com/aUgQhDV.png" />
         <meta property="og:url" content="https://ergorank.com/" />
       </Helmet>
       <Router>
         <NavBar />
 
         <Switch>
-          <Route path="/test">
-            <TestView onChange={handleFormDataUpdate} />
+          <Route path="/improvements">
+            <ImprovementsView />
           </Route>
           <Route path="/results">
             <ResultsView
@@ -95,8 +95,8 @@ const App = () => {
               healthQuestionResults={healthQuestionResults}
             />
           </Route>
-          <Route path="/improvements">
-            <ImprovementsView />
+          <Route path="/test">
+            <TestView onChange={handleFormDataUpdate} />
           </Route>
           <Route path="/">
             <HomeView />
