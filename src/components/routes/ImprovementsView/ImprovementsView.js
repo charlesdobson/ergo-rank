@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
 import { Redirect } from 'react-router-dom';
 import { Button, List } from 'antd';
@@ -11,51 +12,137 @@ const data = [
   {
     title: 'Chair',
     color: '#1dd1a1',
-    icon: <FaChair size={24} style={{ color: '#1dd1a1' }} />
+    icon: <FaChair size={24} style={{ color: '#10ac84' }} />,
+    improvements: []
   },
   {
     title: 'Monitor',
     color: '#1dd1a1',
-    icon: <FiMonitor size={24} style={{ color: '#565387' }} />
+    icon: <FiMonitor size={24} style={{ color: '#10ac84' }} />,
+    improvements: []
   },
   {
     title: 'Accessories',
     color: '#1dd1a1',
-    icon: <FaKeyboard size={24} style={{ color: '#10ac84' }} />
+    icon: <FaKeyboard size={24} style={{ color: '#10ac84' }} />,
+    improvements: []
   },
   {
     title: 'Health',
     color: '#1dd1a1',
-    icon: <GiHealthNormal size={24} style={{ color: '#7679b4' }} />
+    icon: <GiHealthNormal size={24} style={{ color: '#10ac84' }} />,
+    improvements: []
   }
 ];
 
-const ImprovementsView = () => {
+const ImprovementsView = ({
+  chairFeetSupported,
+  chairBackSupported,
+  chairArmrestAdjustable,
+  monitorPosition,
+  monitorHeight,
+  monitorGlare,
+  accessoryHeight,
+  accessoryDistance,
+  accessoryPosition,
+  healthEyeBreaks,
+  healthPhysicalBreaks,
+  healthLightLevel
+}) => {
   const [takeTest, setTakeTest] = useState(false);
+  const [seeResults, setSeeResults] = useState(false);
 
-  const handleSubmit = () => {
+  const handleTestSubmit = () => {
     setTakeTest(true);
   };
+  const handleBackSubmit = () => {
+    setSeeResults(true);
+  };
 
-  return takeTest ? (
-    <Redirect to="/test" />
-  ) : (
+  const setImprovements = () => {
+    data[0].improvements = [];
+    data[1].improvements = [];
+    data[2].improvements = [];
+    data[3].improvements = [];
+    if (chairFeetSupported !== 100) {
+      data[0].improvements.push(
+        'Lower your chair until your feet are fully supported or use a footrest to support your feet'
+      );
+    }
+    if (chairBackSupported !== 100) {
+      data[0].improvements.push(
+        'Adjust the chair back and seat pan until properly supported'
+      );
+    }
+    if (chairArmrestAdjustable !== 100) {
+      data[0].improvements.push(
+        'Adjust your armrests until you can position yourself close to your workstation or remove them completely'
+      );
+    }
+    if (monitorPosition !== 100) {
+      data[1].improvements.push(
+        'Reposition your monitor or your chair so your monitor is directly in front of you'
+      );
+    }
+    if (monitorHeight !== 100) {
+      data[1].improvements.push(
+        "Adjust monitor height with the built-in adjustments or a monitor stand until it's slightly below eye level"
+      );
+    }
+    if (monitorGlare !== 100) {
+      data[1].improvements.push(
+        'Adjust overhead lighting or cover windows to reduce glare on your monitor'
+      );
+    }
+    if (accessoryHeight !== 100) {
+      data[2].improvements.push(
+        'Reposition your workstation, keyboard or chair until your keyboard, mouse and work surface are at elbow height'
+      );
+    }
+    if (accessoryDistance !== 100) {
+      data[2].improvements.push(
+        'Rearrange your workspace until all frequently used items are within easy reach'
+      );
+    }
+    if (accessoryPosition !== 100) {
+      data[2].improvements.push(
+        'Check your posture and reposition your keyboard and mouse height until your wrists are straight when using them'
+      );
+    }
+    if (healthEyeBreaks !== 100) {
+      data[3].improvements.push(
+        'Set a reminder to refocus on a picture or a wall every 30 minutes'
+      );
+    }
+    if (healthPhysicalBreaks !== 100) {
+      data[3].improvements.push(
+        'Set a reminder to take physical/postural breaks every hour'
+      );
+    }
+    if (healthLightLevel !== 100) {
+      data[3].improvements.push(
+        'Obtain a desk lamp or improve overhead lighting to provide adequate light for reading and writing'
+      );
+    }
+  };
+
+  setImprovements();
+
+  if (takeTest) {
+    return <Redirect to="/test" />;
+  }
+  if (seeResults) {
+    return <Redirect to="/results" />;
+  }
+
+  return (
     <div className="improvements-view">
       <div className="improvements-view-content">
-        <p>Here&apos;s how you can improve your setup:</p>
+        <p>Here are some tips on how you can improve your setup:</p>
         <div className="improvements-view-individual-results">
-          {/* <p>Here&apos;s how you can improve your setup:</p> */}
-
           <List
-            grid={{ md: 2 }}
-            style={{
-              marginLeft: '10vw',
-              marginRight: '10vw',
-              marginTop: '5vh',
-              marginBottom: '5vh'
-            }}
+            grid={{ lg: 2 }}
             dataSource={data}
-            // header={<p>Here&apos;s how you can improve your setup:</p>}
             renderItem={item => (
               <List.Item>
                 <List.Item.Meta
@@ -65,9 +152,9 @@ const ImprovementsView = () => {
                   // eslint-disable-next-line prettier/prettier
                   description={(
                     <ul>
-                      <li>This is some improvement data</li>
-                      <li>This is some more improvement data</li>
-                      <li>This is improvement data</li>
+                      {item.improvements.map(improvement => (
+                        <li key={Math.random() + item.title}>{improvement}</li>
+                      ))}
                     </ul>
                     // eslint-disable-next-line prettier/prettier
                   )}
@@ -76,12 +163,48 @@ const ImprovementsView = () => {
             )}
           />
         </div>
-        <Button type="primary" size="large" onClick={handleSubmit}>
-          TAKE THE TEST AGAIN
-        </Button>
+        <span className="route-buttons">
+          <Button type="primary" size="large" onClick={handleTestSubmit}>
+            TAKE TEST AGAIN
+          </Button>
+          &nbsp;&nbsp;&nbsp;
+          <Button type="primary" size="large" ghost onClick={handleBackSubmit}>
+            BACK TO RESULTS
+          </Button>
+        </span>
       </div>
     </div>
   );
+};
+
+ImprovementsView.propTypes = {
+  chairFeetSupported: PropTypes.number,
+  chairBackSupported: PropTypes.number,
+  chairArmrestAdjustable: PropTypes.number,
+  monitorPosition: PropTypes.number,
+  monitorHeight: PropTypes.number,
+  monitorGlare: PropTypes.number,
+  accessoryHeight: PropTypes.number,
+  accessoryDistance: PropTypes.number,
+  accessoryPosition: PropTypes.number,
+  healthEyeBreaks: PropTypes.number,
+  healthPhysicalBreaks: PropTypes.number,
+  healthLightLevel: PropTypes.number
+};
+
+ImprovementsView.defaultProps = {
+  chairFeetSupported: 0,
+  chairBackSupported: 0,
+  chairArmrestAdjustable: 0,
+  monitorPosition: 0,
+  monitorHeight: 0,
+  monitorGlare: 0,
+  accessoryHeight: 0,
+  accessoryDistance: 0,
+  accessoryPosition: 0,
+  healthEyeBreaks: 0,
+  healthPhysicalBreaks: 0,
+  healthLightLevel: 0
 };
 
 export default withRouter(ImprovementsView);

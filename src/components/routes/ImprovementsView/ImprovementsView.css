@@ -20,21 +20,18 @@
 }
 
 .improvements-view-content p {
-    font-size: 1.6rem;
-    color: #282d37;
+    font-size: 1.5rem;
+    /* color: #282d37; */
     /* padding-bottom: 10vh; */
 }
 
 .improvements-view-individual-results {
-    margin-left: 5vw;
-    margin-right: 5vw;
-    /* width: 80vw;
-    height: 60vh; */
-    /* display: flex;
-    flex-flow: column nowrap;
-    justify-content: center; */
-    /* padding-top: 10vh; */
-    /* align-items: center; */
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    background-color: #ffffff;
+    width: 80vw;
+    padding: 4vh;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);   
 }
 
 .ant-list-item-meta-title {

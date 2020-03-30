@@ -7,11 +7,9 @@ import {
   FacebookShareButton,
   LinkedinShareButton,
   TwitterShareButton,
-  EmailShareButton,
   FacebookIcon,
   LinkedinIcon,
-  TwitterIcon,
-  EmailIcon
+  TwitterIcon
 } from 'react-share';
 
 import celebration from 'public/assets/celebration.svg';
@@ -55,8 +53,8 @@ const ResultsView = ({
                   '5%': '#7679b4',
                   '95%': '#10ac84'
                 }}
-                percent="85"
-                // percent={Math.round(overallScore)}
+                width={140}
+                percent={Math.round(overallScore)}
               />
             </div>
             <div className="results-view-individual-scores">
@@ -154,12 +152,6 @@ const ResultsView = ({
             >
               <TwitterIcon size={35} borderRadius="2px" />
             </TwitterShareButton>
-            <EmailShareButton
-              url="https://ergorank.com/"
-              style={{ paddingLeft: '0.2vw', paddingRight: '0.2vw' }}
-            >
-              <EmailIcon size={35} borderRadius="2px" />
-            </EmailShareButton>
           </div>
         </div>
       </div>

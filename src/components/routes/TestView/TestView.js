@@ -21,11 +21,11 @@ const steps = [
           'Are your feet fully supported and flat on the floor when seated?'
       },
       {
-        name: 'chair-back-supported',
+        name: 'chairBackSupported',
         question: "Is your back fully supported by your chair's backrest?"
       },
       {
-        name: 'chair-armrest-adjustable',
+        name: 'chairArmrestAdjustable',
         question:
           'Do your armrests allow you to position yourself close to your workstation?'
       }
@@ -36,17 +36,17 @@ const steps = [
     icon: <FiMonitor />,
     questions: [
       {
-        name: 'monitor-position',
+        name: 'monitorPosition',
         question:
           'Are you able to position yourself directly in front of your monitor(s)?'
       },
       {
-        name: 'monitor-height',
+        name: 'monitorHeight',
         question:
           'Is your monitor height slightly below eye level when properly seated?'
       },
       {
-        name: 'monitor-glare',
+        name: 'monitorGlare',
         question: 'Is your monitor free from glare?'
       }
     ]
@@ -56,15 +56,15 @@ const steps = [
     icon: <FaKeyboard />,
     questions: [
       {
-        name: 'accessory-height',
+        name: 'accessoryHeight',
         question: 'Are your keyboard, mouse, and work surface at elbow height?'
       },
       {
-        name: 'accessory-distance',
+        name: 'accessoryDistance',
         question: 'Are your frequently used accessories within easy reach?'
       },
       {
-        name: 'accessory-position',
+        name: 'accessoryPosition',
         question:
           'When using your keyboard and mouse, are your wrists straight and your arms relaxed?'
       }
@@ -75,15 +75,15 @@ const steps = [
     icon: <GiHealthNormal />,
     questions: [
       {
-        name: 'health-eye-breaks',
+        name: 'healthEyeBreaks',
         question: 'Do you take frequent breaks from looking at your monitor?'
       },
       {
-        name: 'health-physical-breaks',
+        name: 'healthPhysicalBreaks',
         question: 'Do you take frequent breaks with light exercise?'
       },
       {
-        name: 'health-light-level',
+        name: 'healthLightLevel',
         question: 'Is your room lighting adequate for reading and writing?'
       }
     ]

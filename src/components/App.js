@@ -80,7 +80,50 @@ const App = () => {
 
         <Switch>
           <Route path="/improvements">
-            <ImprovementsView />
+            <ImprovementsView
+              chairFeetSupported={parseInt(
+                chairQuestionResults.chairFeetSupported,
+                10
+              )}
+              chairBackSupported={parseInt(
+                chairQuestionResults.chairBackSupported,
+                10
+              )}
+              chairArmrestAdjustable={parseInt(
+                chairQuestionResults.chairArmrestAdjustable,
+                10
+              )}
+              monitorPosition={parseInt(
+                monitorQuestionResults.monitorPosition,
+                10
+              )}
+              monitorHeight={parseInt(monitorQuestionResults.monitorHeight, 10)}
+              monitorGlare={parseInt(monitorQuestionResults.monitorGlare, 10)}
+              accessoryHeight={parseInt(
+                accessoriesQuestionResults.accessoryHeight,
+                10
+              )}
+              accessoryDistance={parseInt(
+                accessoriesQuestionResults.accessoryDistance,
+                10
+              )}
+              accessoryPosition={parseInt(
+                accessoriesQuestionResults.accessoryPosition,
+                10
+              )}
+              healthEyeBreaks={parseInt(
+                healthQuestionResults.healthEyeBreaks,
+                10
+              )}
+              healthPhysicalBreaks={parseInt(
+                healthQuestionResults.healthPhysicalBreaks,
+                10
+              )}
+              healthLightLevel={parseInt(
+                healthQuestionResults.healthLightLevel,
+                10
+              )}
+            />
           </Route>
           <Route path="/results">
             <ResultsView
@@ -89,10 +132,6 @@ const App = () => {
               monitorScore={monitorScore}
               accessoriesScore={accessoriesScore}
               healthScore={healthScore}
-              chairQuestionResults={chairQuestionResults}
-              monitorQuestionResults={monitorQuestionResults}
-              accessoriesQuestionResults={accessoriesQuestionResults}
-              healthQuestionResults={healthQuestionResults}
             />
           </Route>
           <Route path="/test">

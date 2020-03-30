@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { Button } from 'antd';
 import desk from 'public/assets/desk.svg';
 import './HomeView.css';
@@ -58,7 +58,7 @@ const HomeView = () => {
   );
 };
 
-export default HomeView;
+export default withRouter(HomeView);
 
 // Do you want to be comfortable while you work? So do we!
 // That’s why we created this ergonomic assessment tool.
