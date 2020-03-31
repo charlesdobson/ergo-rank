@@ -10,7 +10,7 @@ const validateMessages = {
 };
 
 const ContactView = () => {
-  const onFinish = values => {
+  const handleSubmit = values => {
     console.log(values);
   };
 
@@ -19,13 +19,13 @@ const ContactView = () => {
       <p className="contact-form-title">Contact Us</p>
       <Form
         className="contact-form"
-        name="contact-form"
-        onFinish={onFinish}
+        name="contact"
+        onFinish={handleSubmit}
         method="post"
         data-netlify="true"
         validateMessages={validateMessages}
       >
-        <Input type="hidden" name="form-name" value="contact-form" />
+        <Input type="hidden" name="form-name" value="contact" />
         <Form.Item
           name={['user', 'name']}
           rules={[
@@ -59,7 +59,7 @@ const ContactView = () => {
             type="primary"
             size="large"
             htmlType="submit"
-            form="contact-form"
+            form="contact"
             className="contact-form-button"
           >
             Submit
