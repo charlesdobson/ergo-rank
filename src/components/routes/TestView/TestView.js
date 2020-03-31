@@ -101,87 +101,83 @@ const TestView = ({ onChange }) => {
   return currentStep === 4 ? (
     <Redirect to="/results" />
   ) : (
-    <>
-      <div className="test-view">
-        <div className="test-view-content">
-          <div className="test-view-text-content">
-            <p>Take the test to find out how you can improve your workspace!</p>
-          </div>
-          <div className="test-view-steps">
-            <Steps current={currentStep}>
-              {steps.map(item => (
-                <Step key={item.title} title={item.title} icon={item.icon} />
-              ))}
-            </Steps>
-            <Divider style={{ backgroundColor: '#f0f2f5' }} />
-            <div className="steps-content">
-              <Form
-                className="steps-content-form"
-                id={`test-${steps[currentStep].title}-form`}
-                onFinish={handleSubmit}
-                onFinishFailed={() => {}}
-                hideRequiredMark
-                labelCol={{ span: 18 }}
-                wrapperCol={{ span: 6 }}
+    <div className="test-view-content">
+      <div className="test-view-text-content">
+        <p>Take the test to find out how you can improve your workspace!</p>
+      </div>
+      <div className="test-view-steps">
+        <Steps current={currentStep}>
+          {steps.map(item => (
+            <Step key={item.title} title={item.title} icon={item.icon} />
+          ))}
+        </Steps>
+        <Divider style={{ backgroundColor: '#f0f2f5' }} />
+        <div className="steps-content">
+          <Form
+            className="steps-content-form"
+            id={`test-${steps[currentStep].title}-form`}
+            onFinish={handleSubmit}
+            onFinishFailed={() => {}}
+            hideRequiredMark
+            labelCol={{ span: 18 }}
+            wrapperCol={{ span: 6 }}
+          >
+            {steps[currentStep].questions.map(q => (
+              <Form.Item
+                name={q.name}
+                label={q.question}
+                key={q.name}
+                colon={false}
+                rules={[{ required: true, message: 'Required' }]}
+                className="steps-content-form-item"
               >
-                {steps[currentStep].questions.map(q => (
-                  <Form.Item
-                    name={q.name}
-                    label={q.question}
-                    key={q.name}
-                    colon={false}
-                    rules={[{ required: true, message: 'Required' }]}
-                    className="steps-content-form-item"
-                  >
-                    <div className="steps-radio-group">
-                      <Radio.Group>
-                        <Radio value={100}>Yes</Radio>
-                        <Radio value={0}>No</Radio>
-                      </Radio.Group>
-                    </div>
-                  </Form.Item>
-                ))}
-              </Form>
-            </div>
-            <div className="steps-action">
-              {currentStep < steps.length - 1 && (
-                <Button
-                  type="primary"
-                  size="large"
-                  form={`test-${steps[currentStep].title}-form`}
-                  key="submit"
-                  htmlType="submit"
-                >
-                  NEXT
-                </Button>
-              )}
-              {currentStep === steps.length - 1 && (
-                <Button
-                  type="primary"
-                  size="large"
-                  form={`test-${steps[currentStep].title}-form`}
-                  key="submit"
-                  htmlType="submit"
-                >
-                  SUBMIT
-                </Button>
-              )}
-              {currentStep > 0 && (
-                <Button
-                  type="primary"
-                  ghost
-                  size="large"
-                  style={{ marginLeft: 8 }}
-                  onClick={() => setCurrentStep(currentStep - 1)}
-                >
-                  PREVIOUS
-                </Button>
-              )}
-            </div>
-          </div>
+                <div className="steps-radio-group">
+                  <Radio.Group>
+                    <Radio value={100}>Yes</Radio>
+                    <Radio value={0}>No</Radio>
+                  </Radio.Group>
+                </div>
+              </Form.Item>
+            ))}
+          </Form>
+        </div>
+        <div className="steps-action">
+          {currentStep < steps.length - 1 && (
+            <Button
+              type="primary"
+              size="large"
+              form={`test-${steps[currentStep].title}-form`}
+              key="submit"
+              htmlType="submit"
+            >
+              NEXT
+            </Button>
+          )}
+          {currentStep === steps.length - 1 && (
+            <Button
+              type="primary"
+              size="large"
+              form={`test-${steps[currentStep].title}-form`}
+              key="submit"
+              htmlType="submit"
+            >
+              SUBMIT
+            </Button>
+          )}
+          {currentStep > 0 && (
+            <Button
+              type="primary"
+              ghost
+              size="large"
+              style={{ marginLeft: 8 }}
+              onClick={() => setCurrentStep(currentStep - 1)}
+            >
+              PREVIOUS
+            </Button>
+          )}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

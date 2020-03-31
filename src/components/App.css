@@ -15,3 +15,56 @@ html, body, div, span, p {
     font-size: 1.3rem;
     font-weight: 500;
 }
+
+
+/* HEADER */
+.header {
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    padding-left: 3vw;
+    background-color: #10ac83;
+}
+
+.logo-link {
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: #f8f9fa;
+}
+
+.logo-link:hover {
+    color: #f8f9fa;
+}
+
+
+/* CONTENT */
+.content {
+    padding-top: 15vh;
+    padding-bottom: 10vh;
+    background-color: #f8f9fa
+}
+
+
+/* FOOTER */
+.footer {
+    text-align: center;
+    z-index: 1;
+    width: 100%;
+    background-color: #413f58;
+}
+
+.footer-text {
+    font-size: 1.5rem;
+    color: #f8f9fa;
+    vertical-align: middle;
+}
+
+.mappedin-logo {
+    padding-left: 0.3vw;
+    margin-bottom: 0.7vh;
+    height: 2.3rem;
+}
+
+.mappedin-logo:hover {
+    filter: brightness(95%);
+}

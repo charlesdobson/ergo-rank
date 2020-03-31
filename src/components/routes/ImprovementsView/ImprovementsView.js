@@ -136,43 +136,41 @@ const ImprovementsView = ({
   }
 
   return (
-    <div className="improvements-view">
-      <div className="improvements-view-content">
-        <p>Here are some tips on how you can improve your setup:</p>
-        <div className="improvements-view-individual-results">
-          <List
-            grid={{ lg: 2 }}
-            dataSource={data}
-            renderItem={item => (
-              <List.Item>
-                <List.Item.Meta
-                  avatar={item.icon}
-                  title={item.title}
-                  style={{ color: item.colour }}
+    <div className="improvements-view-content">
+      <p>Here are some tips on how you can improve your setup:</p>
+      <div className="improvements-view-individual-results">
+        <List
+          grid={{ lg: 2 }}
+          dataSource={data}
+          renderItem={item => (
+            <List.Item>
+              <List.Item.Meta
+                avatar={item.icon}
+                title={item.title}
+                style={{ color: item.colour }}
+                // eslint-disable-next-line prettier/prettier
+                description={(
+                  <ul>
+                    {item.improvements.map(improvement => (
+                      <li key={Math.random() + item.title}>{improvement}</li>
+                    ))}
+                  </ul>
                   // eslint-disable-next-line prettier/prettier
-                  description={(
-                    <ul>
-                      {item.improvements.map(improvement => (
-                        <li key={Math.random() + item.title}>{improvement}</li>
-                      ))}
-                    </ul>
-                    // eslint-disable-next-line prettier/prettier
                   )}
-                />
-              </List.Item>
-            )}
-          />
-        </div>
-        <span className="route-buttons">
-          <Button type="primary" size="large" onClick={handleTestSubmit}>
-            TAKE TEST AGAIN
-          </Button>
-          &nbsp;&nbsp;&nbsp;
-          <Button type="primary" size="large" ghost onClick={handleBackSubmit}>
-            BACK TO RESULTS
-          </Button>
-        </span>
+              />
+            </List.Item>
+          )}
+        />
       </div>
+      <span className="route-buttons">
+        <Button type="primary" size="large" onClick={handleTestSubmit}>
+          TAKE TEST AGAIN
+        </Button>
+        &nbsp;&nbsp;&nbsp;
+        <Button type="primary" size="large" ghost onClick={handleBackSubmit}>
+          BACK TO RESULTS
+        </Button>
+      </span>
     </div>
   );
 };

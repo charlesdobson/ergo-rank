@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { hot } from 'react-hot-loader';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Link, Switch, Route } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import NavBar from 'src/components/NavBar/';
-import Footer from 'src/components/Footer';
+import { Layout } from 'antd';
 import HomeView from 'src/components/routes/HomeView';
 import TestView from 'src/components/routes/TestView';
 import ResultsView from 'src/components/routes/ResultsView';
 import ImprovementsView from 'src/components/routes/ImprovementsView';
+import { HeartFilled } from '@ant-design/icons';
+import mappedin from 'public/assets/mappedin-logo-white.svg';
 import './App.css';
+
+const { Header, Content, Footer } = Layout;
 
 const calculateScore = values => {
   let score = 0;
@@ -76,73 +79,94 @@ const App = () => {
         <meta property="og:url" content="https://ergorank.com/" />
       </Helmet>
       <Router>
-        <NavBar />
-
-        <Switch>
-          <Route path="/improvements">
-            <ImprovementsView
-              chairFeetSupported={parseInt(
-                chairQuestionResults.chairFeetSupported,
-                10
-              )}
-              chairBackSupported={parseInt(
-                chairQuestionResults.chairBackSupported,
-                10
-              )}
-              chairArmrestAdjustable={parseInt(
-                chairQuestionResults.chairArmrestAdjustable,
-                10
-              )}
-              monitorPosition={parseInt(
-                monitorQuestionResults.monitorPosition,
-                10
-              )}
-              monitorHeight={parseInt(monitorQuestionResults.monitorHeight, 10)}
-              monitorGlare={parseInt(monitorQuestionResults.monitorGlare, 10)}
-              accessoryHeight={parseInt(
-                accessoriesQuestionResults.accessoryHeight,
-                10
-              )}
-              accessoryDistance={parseInt(
-                accessoriesQuestionResults.accessoryDistance,
-                10
-              )}
-              accessoryPosition={parseInt(
-                accessoriesQuestionResults.accessoryPosition,
-                10
-              )}
-              healthEyeBreaks={parseInt(
-                healthQuestionResults.healthEyeBreaks,
-                10
-              )}
-              healthPhysicalBreaks={parseInt(
-                healthQuestionResults.healthPhysicalBreaks,
-                10
-              )}
-              healthLightLevel={parseInt(
-                healthQuestionResults.healthLightLevel,
-                10
-              )}
-            />
-          </Route>
-          <Route path="/results">
-            <ResultsView
-              overallScore={score}
-              chairScore={chairScore}
-              monitorScore={monitorScore}
-              accessoriesScore={accessoriesScore}
-              healthScore={healthScore}
-            />
-          </Route>
-          <Route path="/test">
-            <TestView onChange={handleFormDataUpdate} />
-          </Route>
-          <Route path="/">
-            <HomeView />
-          </Route>
-        </Switch>
-
-        <Footer />
+        <Layout style={{ minHeight: '100vh' }}>
+          <Header className="header">
+            <Link className="logo-link" to="/">
+              ErgoRank
+            </Link>
+          </Header>
+          <Content className="content">
+            <Switch>
+              <Route path="/improvements">
+                <ImprovementsView
+                  chairFeetSupported={parseInt(
+                    chairQuestionResults.chairFeetSupported,
+                    10
+                  )}
+                  chairBackSupported={parseInt(
+                    chairQuestionResults.chairBackSupported,
+                    10
+                  )}
+                  chairArmrestAdjustable={parseInt(
+                    chairQuestionResults.chairArmrestAdjustable,
+                    10
+                  )}
+                  monitorPosition={parseInt(
+                    monitorQuestionResults.monitorPosition,
+                    10
+                  )}
+                  monitorHeight={parseInt(
+                    monitorQuestionResults.monitorHeight,
+                    10
+                  )}
+                  monitorGlare={parseInt(
+                    monitorQuestionResults.monitorGlare,
+                    10
+                  )}
+                  accessoryHeight={parseInt(
+                    accessoriesQuestionResults.accessoryHeight,
+                    10
+                  )}
+                  accessoryDistance={parseInt(
+                    accessoriesQuestionResults.accessoryDistance,
+                    10
+                  )}
+                  accessoryPosition={parseInt(
+                    accessoriesQuestionResults.accessoryPosition,
+                    10
+                  )}
+                  healthEyeBreaks={parseInt(
+                    healthQuestionResults.healthEyeBreaks,
+                    10
+                  )}
+                  healthPhysicalBreaks={parseInt(
+                    healthQuestionResults.healthPhysicalBreaks,
+                    10
+                  )}
+                  healthLightLevel={parseInt(
+                    healthQuestionResults.healthLightLevel,
+                    10
+                  )}
+                />
+              </Route>
+              <Route path="/results">
+                <ResultsView
+                  overallScore={score}
+                  chairScore={chairScore}
+                  monitorScore={monitorScore}
+                  accessoriesScore={accessoriesScore}
+                  healthScore={healthScore}
+                />
+              </Route>
+              <Route path="/test">
+                <TestView onChange={handleFormDataUpdate} />
+              </Route>
+              <Route path="/">
+                <HomeView />
+              </Route>
+            </Switch>
+          </Content>
+          <Footer className="footer">
+            <span>
+              <span className="footer-text">Built with&nbsp;</span>
+              <HeartFilled style={{ color: '#f5222d' }} />
+              <span className="footer-text">&nbsp;at&nbsp;</span>
+              <a href="https://mappedin.com/">
+                <img src={mappedin} alt="mappedin" className="mappedin-logo" />
+              </a>
+            </span>
+          </Footer>
+        </Layout>
       </Router>
     </>
   );
