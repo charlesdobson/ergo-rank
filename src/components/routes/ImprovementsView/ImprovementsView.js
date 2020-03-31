@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
 import { Redirect } from 'react-router-dom';
-import { Button, List } from 'antd';
+import { Button, Empty, List } from 'antd';
 import { FaChair, FaKeyboard } from 'react-icons/fa';
 import { GiHealthNormal } from 'react-icons/gi';
 import { FiMonitor } from 'react-icons/fi';
@@ -150,11 +150,26 @@ const ImprovementsView = ({
                 style={{ color: item.colour }}
                 // eslint-disable-next-line prettier/prettier
                 description={(
-                  <ul>
-                    {item.improvements.map(improvement => (
-                      <li key={Math.random() + item.title}>{improvement}</li>
-                    ))}
-                  </ul>
+                  <>
+                    <ul>
+                      {item.improvements.map(improvement => (
+                        <li key={Math.random() + item.title}>{improvement}</li>
+                      ))}
+                    </ul>
+                    {item.improvements.length === 0 && (
+                      <Empty
+                        // eslint-disable-next-line prettier/prettier
+                        description={(
+                          <span className="improvements-view-empty-result">
+                            Your setup is ergonomic! Keep up the great work!
+                          </span>
+                          // eslint-disable-next-line prettier/prettier
+                        )}
+                        imageStyle={{ display: 'none' }}
+                        style={{ float: 'left' }}
+                      />
+                    )}
+                  </>
                   // eslint-disable-next-line prettier/prettier
                   )}
               />
