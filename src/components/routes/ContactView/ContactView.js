@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input, Button } from 'antd';
+// import { Input, Button } from 'antd';
 import './ContactView.css';
 
 // const validateMessages = {
@@ -25,7 +25,9 @@ const ContactView = () => {
         data-netlify-honeypot="bot-field"
         onSubmit={handleSubmit}
       >
-        <Input type="hidden" name="form-name" value="contact" />
+        <input name="test" />
+        <button type="submit">Submit</button>
+        {/* <Input type="hidden" name="form-name" value="contact" />
         <Input className="contact-form-input" placeholder="Name" name="user" />
         <Input
           className="contact-form-input"
@@ -44,7 +46,7 @@ const ContactView = () => {
           className="contact-form-button"
         >
           Submit
-        </Button>
+        </Button> */}
       </form>
 
       {/* <Form
