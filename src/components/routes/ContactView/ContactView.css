@@ -1,0 +1,29 @@
+.contact-view-content {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-form {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    padding: 4vh;
+    background-color: #ffffff;
+    padding: 4vh;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);   
+}
+
+.contact-form-title {
+    font-size: 1.8rem;
+    font-weight: 500;
+    padding-bottom: 5vh;
+}
+
+.contact-form-input {
+    width: 40vw;
+    align-self: center;
+    border: none;
+    background-color: #f8f9fa;
+}

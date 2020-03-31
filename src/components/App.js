@@ -7,6 +7,7 @@ import HomeView from 'src/components/routes/HomeView';
 import TestView from 'src/components/routes/TestView';
 import ResultsView from 'src/components/routes/ResultsView';
 import ImprovementsView from 'src/components/routes/ImprovementsView';
+import ContactView from 'src/components/routes/ContactView';
 import ScrollToTop from 'src/components/ScrollToTop';
 import { HeartFilled } from '@ant-design/icons';
 import mappedin from 'public/assets/mappedin-logo-white.svg';
@@ -89,6 +90,9 @@ const App = () => {
           </Header>
           <Content className="content">
             <Switch>
+              <Route path="/contact">
+                <ContactView />
+              </Route>
               <Route path="/improvements">
                 <ImprovementsView
                   chairFeetSupported={parseInt(
@@ -166,6 +170,11 @@ const App = () => {
               <a href="https://mappedin.com/">
                 <img src={mappedin} alt="mappedin" className="mappedin-logo" />
               </a>
+            </span>
+            <span>
+              <Link className="contact-link" to="/contact">
+                Contact Us
+              </Link>
             </span>
           </Footer>
         </Layout>
