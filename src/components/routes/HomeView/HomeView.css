@@ -35,6 +35,11 @@
 }
 @media screen and (max-width: 768px) {
     .content-text {
+        max-width: 80vw;
+    }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+    .content-text {
         max-width: 70vw;
     }
 }
