@@ -129,10 +129,10 @@ const ImprovementsView = ({
   setImprovements();
 
   if (takeTest) {
-    return <Redirect to="/test" />;
+    return <Redirect push to="/test" />;
   }
   if (seeResults) {
-    return <Redirect to="/results" />;
+    return <Redirect push to="/results" />;
   }
 
   return (

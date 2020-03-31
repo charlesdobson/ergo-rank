@@ -29,7 +29,7 @@ const ResultsView = ({
   };
 
   return improvements ? (
-    <Redirect to="/improvements" />
+    <Redirect push to="/improvements" />
   ) : (
     <div className="results-view-content">
       <img src={celebration} alt="" />

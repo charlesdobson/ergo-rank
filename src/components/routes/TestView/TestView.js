@@ -99,7 +99,7 @@ const TestView = ({ onChange }) => {
   };
 
   return currentStep === 4 ? (
-    <Redirect to="/results" />
+    <Redirect push to="/results" />
   ) : (
     <div className="test-view-content">
       <div className="test-view-text-content">
