@@ -58,11 +58,25 @@ html, body, div, span, p {
     color: #f8f9fa;
     vertical-align: middle;
 }
+@media screen and (max-width: 768px) {
+    .footer-text {
+        font-size: 1.2rem;
+        color: #f8f9fa;
+        vertical-align: middle;
+    }
+}
 
 .mappedin-logo {
     padding-left: 0.3vw;
     margin-bottom: 0.7vh;
     height: 2.3rem;
+}
+@media screen and (max-width: 768px) {
+    .mappedin-logo {
+        padding-left: 0.3vw;
+        margin-bottom: 0.7vh;
+        height: 1.8rem;
+    }
 }
 
 .mappedin-logo:hover {
