@@ -25,6 +25,27 @@
     padding: 4vh;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
+@media screen and (max-width: 768px) {
+    .test-view-steps {
+        background-color: #ffffff;
+        width: 80vw;
+        padding: 4vh;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+    }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+    .test-view-steps {
+        background-color: #ffffff;
+        width: 80vw;
+        padding: 4vh;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        display: block;
+    }
+}
 
 .steps-content {
     min-height: 30vh;
@@ -41,7 +62,6 @@
 }
 @media screen and (max-width: 768px) {
     .steps-content-form-item .ant-form-item-label {
-        white-space: normal;
         margin-left: 0;
         height: 7rem;
         line-height: 1.7rem;
