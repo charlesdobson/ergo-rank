@@ -37,7 +37,7 @@ const ContactView = () => {
   };
 
   const handleChange = e => {
-    setFormData({ [e.target.name]: e.target.value });
+    setFormData(...formData, e.target.value);
   };
 
   return (
