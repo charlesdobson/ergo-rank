@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 // import { Input, Button } from 'antd';
 import './ContactView.css';
 
@@ -9,16 +9,61 @@ import './ContactView.css';
 //   }
 // };
 
+const encode = data => {
+  return Object.keys(data)
+    .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
+    .join('&');
+};
+
 const ContactView = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+
   const handleSubmit = e => {
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({ 'form-name': 'contact', formData })
+    })
+      // eslint-disable-next-line no-alert
+      .then(() => alert('Success!'))
+      // eslint-disable-next-line no-alert
+      .catch(error => alert(error));
+
     e.preventDefault();
-    console.log('Form submitted');
+  };
+
+  const handleChange = e => {
+    setFormData({ [e.target.name]: e.target.value });
   };
 
   return (
     <div className="contact-view-content">
       <p className="contact-form-title">Contact Us</p>
-      <form
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
+        />
+        <input
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+        />
+        <textarea
+          name="message"
+          value={formData.message}
+          onChange={handleChange}
+        />
+        <button type="submit">Send</button>
+      </form>
+      {/* <form
         name="contact"
         method="post"
         data-netlify="true"
@@ -26,8 +71,8 @@ const ContactView = () => {
         onSubmit={handleSubmit}
       >
         <input name="test" />
-        <button type="submit">Submit</button>
-        {/* <Input type="hidden" name="form-name" value="contact" />
+        <button type="submit">Submit</button> */}
+      {/* <Input type="hidden" name="form-name" value="contact" />
         <Input className="contact-form-input" placeholder="Name" name="user" />
         <Input
           className="contact-form-input"
@@ -47,7 +92,7 @@ const ContactView = () => {
         >
           Submit
         </Button> */}
-      </form>
+      {/* </form> */}
 
       {/* <Form
         className="contact-form"
