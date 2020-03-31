@@ -1,23 +1,53 @@
 import React from 'react';
-import { Form, Input, Button } from 'antd';
+import { Input, Button } from 'antd';
 import './ContactView.css';
 
-const validateMessages = {
-  required: 'This field is required!',
-  types: {
-    email: 'Invalid email!'
-  }
-};
+// const validateMessages = {
+//   required: 'This field is required!',
+//   types: {
+//     email: 'Invalid email!'
+//   }
+// };
 
 const ContactView = () => {
-  const handleSubmit = values => {
-    console.log(values);
+  const handleSubmit = e => {
+    e.preventDefault();
+    console.log('Form submitted');
   };
 
   return (
     <div className="contact-view-content">
       <p className="contact-form-title">Contact Us</p>
-      <Form
+      <form
+        name="contact"
+        method="post"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        onSubmit={handleSubmit}
+      >
+        <Input type="hidden" name="form-name" value="contact" />
+        <Input className="contact-form-input" placeholder="Name" name="user" />
+        <Input
+          className="contact-form-input"
+          placeholder="you@domain.com"
+          name="email"
+        />
+        <Input.TextArea
+          className="contact-form-input"
+          placeholder="Message"
+          name="message"
+        />
+        <Button
+          type="primary"
+          size="large"
+          htmlType="submit"
+          className="contact-form-button"
+        >
+          Submit
+        </Button>
+      </form>
+
+      {/* <Form
         className="contact-form"
         name="contact"
         onSubmit={handleSubmit}
@@ -68,7 +98,7 @@ const ContactView = () => {
         <div className="field">
           <div data-netlify-recaptcha="true" />
         </div>
-      </Form>
+      </Form> */}
     </div>
   );
 };
