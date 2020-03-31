@@ -14,9 +14,9 @@ const HomeView = () => {
         </p>
         <br />
         <br />
-        <p className="content-text-subtitle">
+        <p className="content-text-description">
           So do we! That&apos;s why we created this&nbsp;
-          <span className="content-text-subtitle-emphasis">
+          <span className="content-text-description-emphasis">
             ergonomic assessment
           </span>
           &nbsp;tool.
@@ -28,16 +28,14 @@ const HomeView = () => {
           show you how to improve your setup!
         </p>
         <br />
-        <p className="content-text-command-statement">
-          <span className="content-text-command-statement-emphasis">
+        <p className="content-text-description">
+          <span className="content-text-description-emphasis">
             Take the test
           </span>
           , make some&nbsp;
-          <span className="content-text-command-statement-emphasis">
-            adjustments
-          </span>
+          <span className="content-text-description-emphasis">adjustments</span>
           , and see your&nbsp;
-          <span className="content-text-command-statement-emphasis">
+          <span className="content-text-description-emphasis">
             ergonomic ranking&nbsp;
           </span>
           climb!

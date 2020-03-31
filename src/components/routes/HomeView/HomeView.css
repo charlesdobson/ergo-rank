@@ -57,32 +57,13 @@
     }
 }
 
-.content-text-subtitle {
+.content-text-description {
     color: #282d37;
     font-size: 1.4rem;
-    line-height: 1.7rem;
 }
 
-.content-text-subtitle-emphasis {
+.content-text-description-emphasis {
     color: #282d37;
     font-weight: 600;
     font-size: 1.4rem;
-}
-
-.content-text-description {
-    color: #282d37;
-    font-size: 1.2em;
-}
-
-.content-text-command-statement {
-    color: #282d37;
-    font-size: 1.6rem;
-    font-weight: 300;
-    line-height: 2.0rem;
-}
-
-.content-text-command-statement-emphasis {
-    color: #282d37;
-    font-weight: 500;
-    font-size: 1.5rem;
 }
