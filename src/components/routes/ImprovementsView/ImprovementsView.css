@@ -43,3 +43,57 @@
 .ant-list-item-meta-title {
     color: #282d37;
 }
+
+.resource-links {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: left;
+    padding-bottom: 4vh;
+    font-size: 1.5rem;
+}
+@media screen and (max-width: 768px) {
+    .resource-links {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        padding-bottom: 4vh;
+        font-size: 1.5rem;
+    }
+}
+
+
+.resource-links li {
+    list-style-type: none;
+}
+@media screen and (max-width: 768px) {
+    .resource-links li {
+        padding-top: 2vh;
+        padding-bottom: 2vh;
+    }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+    .resource-links li {
+        padding-top: 1vh;
+        padding-bottom: 1vh;
+    }
+}
+
+.resource-links p {
+    padding-bottom: 2vh;
+}
+
+.resource-links a {
+    color: #2e86de;
+    font-size: 1.3rem;
+    max-width: 90%;
+    padding: 1vh;
+}
+
+.resource-links a:hover {
+    color: #54a0ff;
+    font-size: 1.3rem;
+}
+
+.route-buttons {
+    padding-top: 5vh;
+}

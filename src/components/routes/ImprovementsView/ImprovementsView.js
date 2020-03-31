@@ -177,6 +177,38 @@ const ImprovementsView = ({
           )}
         />
       </div>
+      <div className="resource-links">
+        <p>
+          For more information on workspace ergonomics, check out the links
+          below:
+        </p>
+        <ul>
+          <li>
+            <a href="http://ergo.human.cornell.edu/ergoguide.html">
+              Cornell University Ergonomics
+            </a>
+          </li>
+          <li>
+            <a href="https://depts.washington.edu/hhpccweb/health-resource/computer-workstation-ergonomics/">
+              University of Washington Computer Workstation Ergonomics
+            </a>
+          </li>
+          <li>
+            <a href="https://ehs.princeton.edu/book/export/html/72">
+              Princeton Computer Workstations & Ergonomics
+            </a>
+          </li>
+        </ul>
+        {/* <a href="http://ergo.human.cornell.edu/ergoguide.html">
+          Cornell University Ergonomics
+        </a>
+        <a href="https://depts.washington.edu/hhpccweb/health-resource/computer-workstation-ergonomics/">
+          University of Washington Computer Workstation Ergonomics
+        </a>
+        <a href="https://ehs.princeton.edu/book/export/html/72">
+          Princeton Computer Workstations & Ergonomics
+        </a> */}
+      </div>
       <span className="route-buttons">
         <Button type="primary" size="large" onClick={handleTestSubmit}>
           TAKE TEST AGAIN
