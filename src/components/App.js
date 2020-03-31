@@ -7,6 +7,7 @@ import HomeView from 'src/components/routes/HomeView';
 import TestView from 'src/components/routes/TestView';
 import ResultsView from 'src/components/routes/ResultsView';
 import ImprovementsView from 'src/components/routes/ImprovementsView';
+import ScrollToTop from 'src/components/ScrollToTop';
 import { HeartFilled } from '@ant-design/icons';
 import mappedin from 'public/assets/mappedin-logo-white.svg';
 import './App.css';
@@ -79,6 +80,7 @@ const App = () => {
         <meta property="og:url" content="https://ergorank.com/" />
       </Helmet>
       <Router>
+        <ScrollToTop />
         <Layout style={{ minHeight: '100vh' }}>
           <Header className="header">
             <Link className="logo-link" to="/">
