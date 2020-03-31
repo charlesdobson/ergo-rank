@@ -20,7 +20,7 @@ const ContactView = () => {
       <Form
         className="contact-form"
         name="contact"
-        onFinish={handleSubmit}
+        onSubmit={handleSubmit}
         method="post"
         data-netlify="true"
         validateMessages={validateMessages}
