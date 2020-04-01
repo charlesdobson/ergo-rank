@@ -1,7 +1,7 @@
 {
   "name": "ergo-rank",
   "version": "0.0.1",
-  "description": "An ergonomic assessment tool that helps you optimize your desk setup",
+  "description": "An ergonomic assessment tool that helps you optimize your workspace setup",
   "main": "index.js",
   "repository": "https://github.com/charlesdobson/ergo-rank",
   "author": "Charlie Dobson",
