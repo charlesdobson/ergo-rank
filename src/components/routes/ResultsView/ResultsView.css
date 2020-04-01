@@ -154,3 +154,8 @@
         margin-right: 0.4vw;
     }
 }
+
+.ant-progress-circle.ant-progress-status-success .ant-progress-text {
+    color: #10ac83 !important;
+    font-weight: 400;
+}

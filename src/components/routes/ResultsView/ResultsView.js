@@ -46,14 +46,27 @@ const ResultsView = ({
           </span>
           <br />
           <br />
-          <Progress
-            type="circle"
-            strokeColor={{
-              '5%': '#7679b4',
-              '95%': '#10ac84'
-            }}
-            percent={Math.round(overallScore)}
-          />
+          {overallScore !== 100 && (
+            <Progress
+              type="circle"
+              strokeColor={{
+                '5%': '#7679b4',
+                '95%': '#10ac84'
+              }}
+              percent={Math.round(overallScore)}
+            />
+          )}
+          {overallScore === 100 && (
+            <Progress
+              type="circle"
+              strokeColor={{
+                '5%': '#7679b4',
+                '95%': '#10ac84'
+              }}
+              percent={100}
+              format={() => '100%'}
+            />
+          )}
         </div>
         <div className="results-view-individual-scores">
           <Card
