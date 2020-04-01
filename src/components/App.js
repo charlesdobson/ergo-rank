@@ -162,7 +162,7 @@ const App = () => {
             <span>
               <span className="footer-text">Built with&nbsp;</span>
               <HeartFilled style={{ color: '#f5222d' }} />
-              <span className="footer-text">&nbsp;at&nbsp;</span>
+              <span className="footer-text">&nbsp;by&nbsp;</span>
               <a href="https://mappedin.com/">
                 <img src={mappedin} alt="mappedin" className="mappedin-logo" />
               </a>
