@@ -142,6 +142,17 @@ const TestView = ({ onChange }) => {
           </Form>
         </div>
         <div className="steps-action">
+          {currentStep > 0 && (
+            <Button
+              type="primary"
+              ghost
+              size="large"
+              style={{ marginRight: 8 }}
+              onClick={() => setCurrentStep(currentStep - 1)}
+            >
+              PREVIOUS
+            </Button>
+          )}
           {currentStep < steps.length - 1 && (
             <Button
               type="primary"
@@ -162,17 +173,6 @@ const TestView = ({ onChange }) => {
               htmlType="submit"
             >
               SUBMIT
-            </Button>
-          )}
-          {currentStep > 0 && (
-            <Button
-              type="primary"
-              ghost
-              size="large"
-              style={{ marginLeft: 8 }}
-              onClick={() => setCurrentStep(currentStep - 1)}
-            >
-              PREVIOUS
             </Button>
           )}
         </div>
