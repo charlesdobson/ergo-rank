@@ -7,11 +7,11 @@ import './HomeView.css';
 const HomeView = () => {
   return (
     <div className="home-view-content">
-      <img src={desk} alt="chair" />
+      <img src={desk} alt="Ergonomic desk setup" />
       <div className="content-text">
-        <p className="content-text-header">
+        <h1 className="content-text-header">
           Do you want to be comfortable while you work?
-        </p>
+        </h1>
         <br />
         <br />
         <p className="content-text-description">

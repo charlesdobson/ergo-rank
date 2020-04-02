@@ -1,6 +1,6 @@
 <h1 align="center">Ergo Rank</h1>
 <h2 align="center">
-    <a href="https://ergorank.com/">ergorank.com</a>
+    <a href="https://ergorank.com">https://ergorank.com</a>
 </h2>
 <h3 align="center">An ergonomic assessment tool that helps you optimize your desk setup</h3>
 

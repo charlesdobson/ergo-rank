@@ -70,7 +70,10 @@ const App = () => {
     <>
       <Helmet>
         <meta charSet="utf-8" />
-        <meta property="og:title" content="ErgoRank" />
+        <meta
+          property="og:title"
+          content="ErgoRank | Ergonomic Workspace Assessment"
+        />
         <meta property="og:type" content="website" />
         <meta
           property="og:description"
@@ -163,8 +166,12 @@ const App = () => {
               <span className="footer-text">Built with&nbsp;</span>
               <HeartFilled style={{ color: '#f5222d' }} />
               <span className="footer-text">&nbsp;by&nbsp;</span>
-              <a href="https://mappedin.com/">
-                <img src={mappedin} alt="mappedin" className="mappedin-logo" />
+              <a href="https://mappedin.com/" title="Go to mappedin.com">
+                <img
+                  src={mappedin}
+                  alt="Mappedin.com website"
+                  className="mappedin-logo"
+                />
               </a>
             </span>
           </Footer>
