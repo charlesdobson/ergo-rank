@@ -1,14 +1,14 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import * as serviceWorkerRegistration from "./utils/serviceWorkerRegistration";
-import Views from "views";
-import reportWebVitals from "./reportWebVitals";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import * as serviceWorkerRegistration from './utils/serviceWorkerRegistration';
+import Views from 'views';
+import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
     <Views />
   </React.StrictMode>,
-  document.getElementById("root")
+  document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change

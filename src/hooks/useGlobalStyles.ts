@@ -1,9 +1,9 @@
-import { css } from "@emotion/react";
+import { css, SerializedStyles } from '@emotion/react';
 
-const useGlobalStyles = () => {
+const useGlobalStyles = (): SerializedStyles => {
   return css`
     :root {
-      --font-family: "Montserrat";
+      --font-family: 'Montserrat';
 
       --white: #ffffff;
       --black: #000000;
@@ -95,6 +95,10 @@ const useGlobalStyles = () => {
       --pink-8: #be185d;
       --pink-9: #9d174d;
       --pink-10: #831843;
+    }
+
+    * {
+      font-family: var(--font-family);
     }
   `;
 };

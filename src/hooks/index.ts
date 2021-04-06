@@ -1,3 +1,3 @@
-import useGlobalStyles from "./useGlobalStyles";
+import useGlobalStyles from './useGlobalStyles';
 
 export { useGlobalStyles };
