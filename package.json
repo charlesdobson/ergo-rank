@@ -41,7 +41,9 @@
     ]
   },
   "devDependencies": {
-    "@types/styled-components": "^5.1.9",
-    "styled-components": "^5.2.3"
+    "@emotion/react": "^11.1.5",
+    "@emotion/styled": "^11.1.5",
+    "emotion": "^11.0.0",
+    "styled-reset": "^4.3.4"
   }
 }
