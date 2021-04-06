@@ -1,0 +1,11 @@
+# [[redirects]]
+#   from = "/*"
+#   to = "/index.html"
+#   status = 301
+
+# [[redirects]]
+#   from = "/*"
+#   to = "/index.html"
+#   query = {fbclid = ":fbclid"}
+#   force = true
+#   status = 301
