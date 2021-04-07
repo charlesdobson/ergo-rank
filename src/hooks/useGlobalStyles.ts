@@ -1,100 +1,86 @@
 import { css, SerializedStyles } from '@emotion/react';
+import { generate } from '@ant-design/colors';
+
+type TBaseColors = {
+  [paletteName: string]: string | string[];
+};
+
+const BASE_COLORS: TBaseColors = {
+  blue: '#1890ff',
+  cyan: '#13c2c2',
+  geekblue: '#2f54eb',
+  gold: '#faad14',
+  green: '#52c41a',
+  orange: '#fa8c16',
+  purple: '#722ed1',
+  red: '#f5222d',
+  yellow: '#fadb14',
+  gray: [
+    '#ffffff',
+    '#fafafa',
+    '#f5f5f5',
+    '#f0f0f0',
+    '#d9d9d9',
+    '#bfbfbf',
+    '#8c8c8c',
+    '#595959',
+    '#434343',
+    '#262626',
+    '#1f1f1f',
+    '#141414',
+    '#000000',
+  ],
+};
+
+const formatCssVariable = (
+  paletteName: string,
+  value: string | string[],
+  index?: number
+): string =>
+  `--${paletteName}${index || index === 0 ? `-${index + 1}` : ''}: ${value}`;
+
+const createPaletteVars = (paletteName: string, baseColor: string) => {
+  const cssVars: string[] = [];
+
+  const palette = generate(baseColor);
+
+  palette.forEach((color: string, index: number) =>
+    cssVars.push(formatCssVariable(paletteName, color, index))
+  );
+
+  return cssVars;
+};
 
 const useGlobalStyles = (): SerializedStyles => {
+  const cssVars: string[] = [];
+
+  for (const paletteKey in BASE_COLORS) {
+    const baseColor = BASE_COLORS[paletteKey];
+
+    let paletteVars: string[] = [];
+
+    if (typeof baseColor === 'string') {
+      // Generate a new palette based on the color
+      paletteVars = createPaletteVars(paletteKey, baseColor);
+    } else {
+      // baseColor is an array, use those colors as the palette
+      paletteVars = baseColor.map((color, index) =>
+        formatCssVariable(paletteKey, color, index)
+      );
+    }
+
+    paletteVars.forEach((value) => cssVars.push(value));
+  }
+
   return css`
     :root {
       --font-family: 'Montserrat';
 
-      --white: #ffffff;
-      --black: #000000;
+      ${cssVars.map((cssString) => cssString)}
+    }
 
-      --gray-1: #f9fafb;
-      --gray-2: #f3f4f6;
-      --gray-3: #e5e7eb;
-      --gray-4: #d1d5db;
-      --gray-5: #9ca3af;
-      --gray-6: #6b7280;
-      --gray-7: #4b5563;
-      --gray-8: #374151;
-      --gray-9: #1f2937;
-      --gray-10: #111827;
-
-      --red-1: #fef2f2;
-      --red-2: #fee2e2;
-      --red-3: #fecaca;
-      --red-4: #fca5a5;
-      --red-5: #f87171;
-      --red-6: #ef4444;
-      --red-7: #dc2626;
-      --red-8: #b91c1c;
-      --red-9: #991b1b;
-      --red-10: #7f1d1d;
-
-      --yellow-1: #fffbeb;
-      --yellow-2: #fef3c7;
-      --yellow-3: #fde68a;
-      --yellow-4: #fcd34d;
-      --yellow-5: #fbbf24;
-      --yellow-6: #f59e0b;
-      --yellow-7: #d97706;
-      --yellow-8: #b45309;
-      --yellow-9: #92400e;
-      --yellow-10: #78350f;
-
-      --green-1: #ecfdf5;
-      --green-2: #d1fae5;
-      --green-3: #a7f3d0;
-      --green-4: #6ee7b7;
-      --green-5: #34d399;
-      --green-6: #10b981;
-      --green-7: #059669;
-      --green-8: #047857;
-      --green-9: #065f46;
-      --green-10: #064e3b;
-
-      --blue-1: #eff6ff;
-      --blue-2: #dbeafe;
-      --blue-3: #bfdbfe;
-      --blue-4: #93c5fd;
-      --blue-5: #60a5fa;
-      --blue-6: #3b82f6;
-      --blue-7: #2563eb;
-      --blue-8: #1d4ed8;
-      --blue-9: #1e40af;
-      --blue-10: #1e3a8a;
-
-      --indigo-1: #eef2ff;
-      --indigo-2: #e0e7ff;
-      --indigo-3: #c7d2fe;
-      --indigo-4: #a5b4fc;
-      --indigo-5: #818cf8;
-      --indigo-6: #6366f1;
-      --indigo-7: #4f46e5;
-      --indigo-8: #4338ca;
-      --indigo-9: #3730a3;
-      --indigo-10: #312e81;
-
-      --purple-1: #f5f3ff;
-      --purple-2: #ede9fe;
-      --purple-3: #ddd6fe;
-      --purple-4: #c4b5fd;
-      --purple-5: #a78bfa;
-      --purple-6: #8b5cf6;
-      --purple-7: #7c3aed;
-      --purple-8: #6d28d9;
-      --purple-9: #5b21b6;
-      --purple-10: #4c1d95;
-
-      --pink-1: #fdf2f8;
-      --pink-2: #fce7f3;
-      --pink-3: #fbcfe8;
-      --pink-4: #f9a8d4;
-      --pink-5: #f472b6;
-      --pink-6: #ec4899;
-      --pink-7: #db2777;
-      --pink-8: #be185d;
-      --pink-9: #9d174d;
-      --pink-10: #831843;
+    body {
+      margin: 0;
     }
 
     * {
