@@ -11,6 +11,7 @@ const BASE_COLORS: TBaseColors = {
   geekblue: '#2f54eb',
   gold: '#faad14',
   green: '#52c41a',
+  magenta: '#eb2f96',
   orange: '#fa8c16',
   purple: '#722ed1',
   red: '#f5222d',
@@ -75,6 +76,8 @@ const useGlobalStyles = (): SerializedStyles => {
   return css`
     :root {
       --font-family: 'Montserrat';
+
+      --border-radius: 2px;
 
       ${cssVars.map((cssString) => cssString)}
     }

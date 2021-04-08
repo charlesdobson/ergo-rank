@@ -1,7 +1,9 @@
 import { ReactElement } from 'react';
+import { useHistory } from 'react-router-dom';
+import styled from '@emotion/styled';
 import { ReactComponent as Deck } from 'assets/desk.svg';
 import { Button } from 'components';
-import styled from '@emotion/styled';
+import { ROUTE } from 'constants/routes';
 
 const HomeViewWrapper = styled.div`
   height: 100%;
@@ -44,6 +46,12 @@ const Description = styled.div`
 `;
 
 const HomeView = (): ReactElement => {
+  const history = useHistory();
+
+  const onButtonClick = () => {
+    history.push(ROUTE.PROFILE);
+  };
+
   return (
     <HomeViewWrapper>
       <StyledDeskSVG />
@@ -62,7 +70,9 @@ const HomeView = (): ReactElement => {
           <strong>Take the test</strong>, make some <strong>adjustments</strong>
           , and see your <strong>ergonomic ranking</strong> climb!
         </span>
-        <Button primary>Get Started</Button>
+        <Button primary onClick={onButtonClick}>
+          Get Started
+        </Button>
       </Description>
     </HomeViewWrapper>
   );

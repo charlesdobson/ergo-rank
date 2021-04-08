@@ -1,9 +1,12 @@
 import { ReactElement } from 'react';
 import { Global } from '@emotion/react';
 import styled from '@emotion/styled';
+import { Switch, Route } from 'react-router-dom';
 import { useGlobalStyles } from 'hooks';
 import { Footer, Topbar } from 'components';
+import { ROUTE } from 'constants/routes';
 import HomeView from './HomeView';
+import ProfileView from './ProfileView';
 
 const ViewsWrapper = styled.div`
   height: 100vh;
@@ -26,7 +29,14 @@ const Views = (): ReactElement => {
       <ViewsWrapper>
         <Topbar />
         <RouteWrapper>
-          <HomeView />
+          <Switch>
+            <Route exact path={ROUTE.HOME}>
+              <HomeView />
+            </Route>
+            <Route path={ROUTE.PROFILE}>
+              <ProfileView />
+            </Route>
+          </Switch>
         </RouteWrapper>
         <Footer />
       </ViewsWrapper>

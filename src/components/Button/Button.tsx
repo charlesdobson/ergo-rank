@@ -8,7 +8,7 @@ const Button = styled.button<IButtonProps>`
   padding: 0.6rem 1.2rem;
   width: max-content;
   white-space: nowrap;
-  border-radius: 2px;
+  border-radius: var(--border-radius);
   font-size: 1rem;
   text-transform: uppercase;
   font-weight: 400;

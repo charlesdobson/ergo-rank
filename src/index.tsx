@@ -1,12 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 import * as serviceWorkerRegistration from './utils/serviceWorkerRegistration';
 import Views from 'views';
 import reportWebVitals from './reportWebVitals';
 
+const App = () => {
+  return (
+    <BrowserRouter>
+      <Views />
+    </BrowserRouter>
+  );
+};
+
 ReactDOM.render(
   <React.StrictMode>
-    <Views />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
