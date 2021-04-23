@@ -1,93 +1,88 @@
 import { css, SerializedStyles } from '@emotion/react';
-import { generate } from '@ant-design/colors';
 
-type TBaseColors = {
-  [paletteName: string]: string | string[];
+type TColors = {
+  [paletteName: string]: string[];
 };
 
-const BASE_COLORS: TBaseColors = {
-  blue: '#1890ff',
-  cyan: '#13c2c2',
-  geekblue: '#2f54eb',
-  gold: '#faad14',
-  green: '#52c41a',
-  magenta: '#eb2f96',
-  orange: '#fa8c16',
-  purple: '#722ed1',
-  red: '#f5222d',
-  yellow: '#fadb14',
-  gray: [
-    '#ffffff',
-    '#fafafa',
-    '#f5f5f5',
-    '#f0f0f0',
-    '#d9d9d9',
-    '#bfbfbf',
-    '#8c8c8c',
-    '#595959',
-    '#434343',
-    '#262626',
-    '#1f1f1f',
-    '#141414',
-    '#000000',
+const COLORS: TColors = {
+  blueGray: [
+    '#F8FAFC',
+    '#F1F5F9',
+    '#E2E8F0',
+    '#CBD5E1',
+    '#94A3B8',
+    '#64748B',
+    '#475569',
+    '#334155',
+    '#1E293B',
+    '#0F172A',
   ],
-};
-
-const formatCssVariable = (
-  paletteName: string,
-  value: string | string[],
-  index?: number
-): string =>
-  `--${paletteName}${index || index === 0 ? `-${index + 1}` : ''}: ${value}`;
-
-const createPaletteVars = (paletteName: string, baseColor: string) => {
-  const cssVars: string[] = [];
-
-  const palette = generate(baseColor);
-
-  palette.forEach((color: string, index: number) =>
-    cssVars.push(formatCssVariable(paletteName, color, index))
-  );
-
-  return cssVars;
+  teal: [
+    '#F0FDFA',
+    '#CCFBF1',
+    '#99F6E4',
+    '#5EEAD4',
+    '#2DD4BF',
+    '#14B8A6',
+    '#0D9488',
+    '#0F766E',
+    '#115E59',
+    '#134E4A',
+  ],
+  cyan: [
+    '#ECFEFF',
+    '#CFFAFE',
+    '#A5F3FC',
+    '#67E8F9',
+    '#22D3EE',
+    '#06B6D4',
+    '#0891B2',
+    '#0E7490',
+    '#155E75',
+    '#164E63',
+  ],
+  indigo: [
+    '#EEF2FF',
+    '#E0E7FF',
+    '#C7D2FE',
+    '#A5B4FC',
+    '#818CF8',
+    '#6366F1',
+    '#4F46E5',
+    '#4338CA',
+    '#3730A3',
+    '#312E81',
+  ],
 };
 
 const useGlobalStyles = (): SerializedStyles => {
   const cssVars: string[] = [];
 
-  for (const paletteKey in BASE_COLORS) {
-    const baseColor = BASE_COLORS[paletteKey];
-
-    let paletteVars: string[] = [];
-
-    if (typeof baseColor === 'string') {
-      // Generate a new palette based on the color
-      paletteVars = createPaletteVars(paletteKey, baseColor);
-    } else {
-      // baseColor is an array, use those colors as the palette
-      paletteVars = baseColor.map((color, index) =>
-        formatCssVariable(paletteKey, color, index)
-      );
-    }
+  for (const paletteKey in COLORS) {
+    const paletteVars: string[] = COLORS[paletteKey].map((color, index) => {
+      return `--${paletteKey}-${index + 1}: ${color}`;
+    });
 
     paletteVars.forEach((value) => cssVars.push(value));
   }
 
   return css`
     :root {
-      --font-family: 'Montserrat';
+      --font-family-primary: 'Montserrat';
+      --font-family-secondary: 'Lato', sans-serif;
 
-      --border-radius: 2px;
+      --border-radius: 32px;
 
       ${cssVars.map((cssString) => cssString)}
     }
 
     body {
       margin: 0;
+      background: var(--blueGray-1);
     }
 
     * {
-      font-family: var(--font-family);
+      font-family: var(--font-family-primary);
     }
   `;
 };

@@ -3,8 +3,9 @@ import styled from '@emotion/styled';
 
 const Wrapper = styled.div`
   height: 10vh;
-  background: var(--purple-10);
-  color: var(--gray-4);
+  /* background: var(--purple-10); */
+  background: var(--blueGray-8);
+  color: var(--blueGray-1);
   font-weight: 500;
   font-size: 0.9rem;
 

@@ -1,3 +1,4 @@
+import useBreakpoints from './useBreakpoints';
 import useGlobalStyles from './useGlobalStyles';
 
-export { useGlobalStyles };
+export { useBreakpoints, useGlobalStyles };

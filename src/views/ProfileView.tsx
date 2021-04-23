@@ -13,6 +13,7 @@ const ProfileViewWrapper = styled.div`
 `;
 
 const Question = styled.h2`
+  color: var(--blueGray-8);
   margin-bottom: 4rem;
 `;
 
@@ -33,8 +34,8 @@ const WorkEnvironmentCard = styled.button`
   justify-content: center;
 
   border-radius: var(--border-radius);
-  background: var(--magenta-10);
-  color: var(--gray-2);
+  background: var(--blueGray-2);
+  color: var(--blueGray-7);
   font-size: 24px;
   font-weight: 500;
 

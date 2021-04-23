@@ -1,42 +1,100 @@
 import { ReactElement } from 'react';
 import { useHistory } from 'react-router-dom';
 import styled from '@emotion/styled';
-import { ReactComponent as Deck } from 'assets/desk.svg';
+import useDarkMode from 'use-dark-mode';
+import { ReactComponent as DeskLight } from 'assets/desk-light.svg';
+import { ReactComponent as DeskDark } from 'assets/desk-dark.svg';
+import { ReactComponent as Dots } from 'assets/dots.svg';
 import { Button } from 'components';
 import { ROUTE } from 'constants/routes';
+import { useBreakpoints } from 'hooks';
+import BREAKPOINTS from 'constants/breakpoints';
 
-const HomeViewWrapper = styled.div`
+interface IHomeViewWrapper {
+  isDarkMode: boolean;
+}
+const HomeViewWrapper = styled.div<IHomeViewWrapper>`
   height: 100%;
 
+  @media ${BREAKPOINTS.MOBILE} {
+    padding-top: 2rem;
+  }
+
+  transition: all 0.1s ease-in;
+
+  background: var(--blueGray-1);
+  .dark-mode & {
+    background: var(--blueGray-10);
+  }
+
   display: flex;
+  flex-flow: row wrap;
   align-items: center;
   justify-content: space-around;
 `;
 
-const StyledDeskSVG = styled(Deck)`
-  height: 65vh;
+const StyledDots = styled(Dots)`
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 0.6rem;
+  opacity: 0.7;
+`;
+
+interface IDeskSvgProps {
+  isMobile: boolean;
+}
+const StyledDeskSVGLight = styled(DeskLight)<IDeskSvgProps>`
+  height: ${(props) => (props.isMobile ? '20vh' : '50vh')};
+  width: auto;
+  flex-basis: ${(props) => props.isMobile && '100%'};
+`;
+
+const StyledDeskSVGDark = styled(DeskDark)<IDeskSvgProps>`
+  height: ${(props) => (props.isMobile ? '20vh' : '50vh')};
   width: auto;
 `;
 
-const Description = styled.div`
-  width: 45vw;
+interface IDescriptionProps {
+  isMobile: boolean;
+}
+const Description = styled.div<IDescriptionProps>`
+  width: ${(props) => (props.isMobile ? '80vw' : '45vw')};
   display: flex;
   flex-flow: column nowrap;
 
   h2 {
-    color: var(--gray-10);
-    font-size: 2.2rem;
-    font-weight: 400;
+    font-family: var(--font-family-primary);
+    color: var(--blueGray-9);
+    .dark-mode & {
+      color: var(--blueGray-1);
+    }
+    font-size: 2rem;
+    font-weight: 500;
     line-height: 2.6rem;
     margin: 0;
+    @media ${BREAKPOINTS.MOBILE} {
+      font-size: 1.5rem;
+      font-weight: 500;
+      line-height: 2.2rem;
+    }
     padding-bottom: 2rem;
   }
 
   span {
-    color: var(--gray-10);
+    font-family: var(--font-family-secondary);
+    color: var(--blueGray-7);
+    .dark-mode & {
+      color: var(--blueGray-1);
+    }
     font-size: 1.1rem;
     font-weight: 400;
     line-height: 1.6rem;
+    @media ${BREAKPOINTS.MOBILE} {
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.3rem;
+    }
     padding-bottom: 2rem;
   }
 
@@ -47,15 +105,21 @@ const Description = styled.div`
 
 const HomeView = (): ReactElement => {
   const history = useHistory();
+  const { isMobile } = useBreakpoints();
+  const { value: isDarkMode } = useDarkMode();
 
   const onButtonClick = () => {
     history.push(ROUTE.PROFILE);
   };
 
   return (
-    <HomeViewWrapper>
-      <StyledDeskSVG />
-      <Description>
+    <HomeViewWrapper isDarkMode={isDarkMode}>
+      {isDarkMode ? (
+        <StyledDeskSVGDark isMobile={isMobile} />
+      ) : (
+        <StyledDeskSVGLight isMobile={isMobile} />
+      )}
+      <Description isMobile={isMobile}>
         <h2>Do you want to be comfortable while you work?</h2>
         <span>
           So do we! That's why we created this{' '}
@@ -74,6 +138,7 @@ const HomeView = (): ReactElement => {
           Get Started
         </Button>
       </Description>
+      {!isMobile && <StyledDots />}
     </HomeViewWrapper>
   );
 };
