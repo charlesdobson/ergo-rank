@@ -1,28 +1,42 @@
 import { ReactElement } from 'react';
 import styled from '@emotion/styled';
+import { useRouteMatch } from 'react-router-dom';
 import { ROUTE } from 'constants/routes';
 import { ReactComponent as Logo } from 'assets/logo.svg';
 import { ReactComponent as Moon } from 'assets/moon.svg';
 import { ReactComponent as Sun } from 'assets/sun.svg';
 import useDarkMode from 'use-dark-mode';
 import BREAKPOINTS from 'constants/breakpoints';
+import { TOPBAR_HEIGHT } from 'constants/global';
 
-const Wrapper = styled.div`
-  height: 9vh;
+interface IWrapperProps {
+  showBackground: boolean;
+}
+const Wrapper = styled('div', {
+  shouldForwardProp: (prop) => prop !== 'showBackground',
+})<IWrapperProps>`
+  height: ${TOPBAR_HEIGHT.DESKTOP};
   @media ${BREAKPOINTS.MOBILE} {
-    height: 5vh;
+    height: ${TOPBAR_HEIGHT.MOBILE};
   }
-  max-width: 100vw;
   padding: 0.2rem 1rem;
   @media ${BREAKPOINTS.MOBILE} {
     padding: 0.8rem 1rem;
   }
-  background: linear-gradient(to right, var(--teal-7), var(--cyan-7));
-  box-shadow: 0 2px 0 rgba(203, 213, 225, 0.2);
+  background: ${(props) =>
+    props.showBackground
+      ? 'linear-gradient(to right, var(--teal-7), var(--cyan-7))'
+      : 'transparent'};
+  box-shadow: ${(props) =>
+    props.showBackground ? '0 2px 0 rgba(203, 213, 225, 0.2)' : 'none'};
 
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  position: fixed;
+  width: inherit;
+  box-sizing: border-box;
 `;
 
 const LogoWrapper = styled.a`
@@ -69,9 +83,10 @@ const StyledSun = styled(Sun)`
 
 const Topbar = (): ReactElement => {
   const { toggle: darkModeToggle, value: isDarkMode } = useDarkMode();
+  const isHome = Boolean(useRouteMatch({ path: `${ROUTE.HOME}`, exact: true }));
 
   return (
-    <Wrapper>
+    <Wrapper showBackground={isHome}>
       <LogoWrapper href={ROUTE.HOME}>
         <Logo />
         <span>ErgoRank</span>

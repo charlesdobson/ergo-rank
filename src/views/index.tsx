@@ -12,6 +12,7 @@ import ProfileView from './ProfileView';
 const ViewsWrapper = styled.div`
   height: 100vh;
   width: 100vw;
+  max-width: 100%;
 
   display: flex;
   flex-flow: column nowrap;

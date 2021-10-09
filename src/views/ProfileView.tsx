@@ -6,6 +6,8 @@ import { ROUTE } from 'constants/routes';
 const ProfileViewWrapper = styled.div`
   height: 100%;
 
+  background: linear-gradient(to bottom, var(--teal-7), var(--cyan-7));
+
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
@@ -14,12 +16,13 @@ const ProfileViewWrapper = styled.div`
 
 const Question = styled.h2`
   color: var(--blueGray-8);
+  text-align: center;
   margin-bottom: 4rem;
 `;
 
 const WorkEnvironments = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   gap: 4em 4em;
 `;
@@ -53,9 +56,6 @@ const WorkEnvironmentCard = styled.button`
 const WORK_ENVIRONMENTS = [
   {
     name: 'Desk',
-  },
-  {
-    name: 'Laptop',
   },
 ];
 
