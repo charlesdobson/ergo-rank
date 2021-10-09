@@ -9,6 +9,9 @@ import BREAKPOINTS from 'constants/breakpoints';
 
 const Wrapper = styled.div`
   height: 9vh;
+  @media ${BREAKPOINTS.MOBILE} {
+    height: 5vh;
+  }
   max-width: 100vw;
   padding: 0.2rem 1rem;
   @media ${BREAKPOINTS.MOBILE} {
