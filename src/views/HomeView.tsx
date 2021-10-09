@@ -44,13 +44,17 @@ const StyledDots = styled(Dots)`
 interface IDeskSvgProps {
   isMobile: boolean;
 }
-const StyledDeskSVGLight = styled(DeskLight)<IDeskSvgProps>`
+const StyledDeskSVGLight = styled(DeskLight, {
+  shouldForwardProp: (prop) => prop !== 'isMobile',
+})<IDeskSvgProps>`
   height: ${(props) => (props.isMobile ? '20vh' : '50vh')};
   width: auto;
   flex-basis: ${(props) => props.isMobile && '100%'};
 `;
 
-const StyledDeskSVGDark = styled(DeskDark)<IDeskSvgProps>`
+const StyledDeskSVGDark = styled(DeskDark, {
+  shouldForwardProp: (prop) => prop !== 'isMobile',
+})<IDeskSvgProps>`
   height: ${(props) => (props.isMobile ? '20vh' : '50vh')};
   width: auto;
 `;
@@ -58,7 +62,9 @@ const StyledDeskSVGDark = styled(DeskDark)<IDeskSvgProps>`
 interface IDescriptionProps {
   isMobile: boolean;
 }
-const Description = styled.div<IDescriptionProps>`
+const Description = styled('div', {
+  shouldForwardProp: (prop) => prop !== 'isMobile',
+})<IDescriptionProps>`
   width: ${(props) => (props.isMobile ? '80vw' : '45vw')};
   display: flex;
   flex-flow: column nowrap;
