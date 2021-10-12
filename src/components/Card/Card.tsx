@@ -13,11 +13,12 @@ const Card = styled.div`
   height: 75%;
 
   position: relative;
+  box-sizing: border-box;
+  padding: 2rem;
 
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  justify-content: center;
 `;
 
 export default Card;

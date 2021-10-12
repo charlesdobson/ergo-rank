@@ -8,6 +8,7 @@ import {
   WorkEnvironmentContextProvider,
   useWorkEnvironmentContext,
 } from 'contexts';
+import BREAKPOINTS from 'constants/breakpoints';
 
 const ProfileViewWrapper = styled.div`
   height: 100%;
@@ -27,11 +28,16 @@ const Question = styled.h2`
   }
   font-weight: 500;
   font-size: 30px;
+  @media ${BREAKPOINTS.MOBILE} {
+    font-size: 18px;
+  }
   text-align: center;
   margin-bottom: 4rem;
 `;
 
 const WorkEnvironmentsGroup = styled.div`
+  flex-grow: 1;
+
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
@@ -47,6 +53,10 @@ const WorkEnvironmentCard = styled('div', {
   all: unset;
   width: 10rem;
   height: 10rem;
+  @media ${BREAKPOINTS.MOBILE} {
+    width: 7rem;
+    height: 7rem;
+  }
 
   display: flex;
   align-items: center;
@@ -85,6 +95,10 @@ const StyledButton = styled(Button)`
   position: absolute;
   bottom: 4vh;
   right: 2vw;
+
+  @media ${BREAKPOINTS.MOBILE} {
+    position: static;
+  }
 `;
 
 // TODO: Figure out how to map enum key/value
