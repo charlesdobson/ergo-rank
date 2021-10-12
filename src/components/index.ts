@@ -1,5 +1,4 @@
-import Button from './Button/Button';
-import Footer from './Footer/Footer';
-import Topbar from './Topbar/Topbar';
-
-export { Button, Footer, Topbar };
+export { default as Button } from './Button/Button';
+export { default as Card } from './Card/Card';
+export { default as Footer } from './Footer/Footer';
+export { default as Topbar } from './Topbar/Topbar';

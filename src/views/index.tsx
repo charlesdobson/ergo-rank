@@ -22,10 +22,10 @@ const RouteWrapper = styled.div`
   flex-grow: 1;
 `;
 
-interface IContextProvidersProps {
+interface IGlobalContextProvidersProps {
   children: React.ReactNode[];
 }
-const ContextProviders = ({ children }: IContextProvidersProps) => (
+const GlobalContextProviders = ({ children }: IGlobalContextProvidersProps) => (
   <ThemeContextProvider>{children}</ThemeContextProvider>
 );
 
@@ -33,7 +33,7 @@ const Views = (): ReactElement => {
   const GlobalStyles = () => useGlobalStyles();
 
   return (
-    <ContextProviders>
+    <GlobalContextProviders>
       <Global styles={GlobalStyles} />
       <ViewsWrapper>
         <Topbar />
@@ -49,7 +49,7 @@ const Views = (): ReactElement => {
         </RouteWrapper>
         {/* <Footer /> */}
       </ViewsWrapper>
-    </ContextProviders>
+    </GlobalContextProviders>
   );
 };
 

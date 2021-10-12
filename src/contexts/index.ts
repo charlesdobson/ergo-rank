@@ -1,3 +1,6 @@
-import { ThemeContextProvider, useThemeContext } from './ThemeContext';
-
-export { ThemeContextProvider, useThemeContext };
+export { ThemeContextProvider, useThemeContext } from './ThemeContext';
+export {
+  WORK_ENVIRONMENTS,
+  WorkEnvironmentContextProvider,
+  useWorkEnvironmentContext,
+} from './WorkEnvironmentContext';
