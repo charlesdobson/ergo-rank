@@ -2,24 +2,10 @@ import { ReactElement } from 'react';
 import styled from '@emotion/styled';
 import { useHistory } from 'react-router-dom';
 import { ROUTE } from 'constants/routes';
-import { Button, Card } from 'components';
-import {
-  WORK_ENVIRONMENTS,
-  WorkEnvironmentContextProvider,
-  useWorkEnvironmentContext,
-} from 'contexts';
+import { Button, Card, ViewWrapper } from 'components';
+import { WORK_ENVIRONMENTS, useWorkEnvironmentContext } from 'contexts';
 import BREAKPOINTS from 'constants/breakpoints';
-
-const ProfileViewWrapper = styled.div`
-  height: 100%;
-
-  background: linear-gradient(to bottom, var(--teal-7), var(--cyan-7));
-
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  justify-content: center;
-`;
+import { BUTTON_VARIANT } from 'components/Button/Button';
 
 const Question = styled.h2`
   color: var(--blueGray-8);
@@ -130,7 +116,7 @@ const ProfileView = (): ReactElement => {
   };
 
   return (
-    <ProfileViewWrapper>
+    <ViewWrapper>
       <Card>
         <Question>Which work environment best resembles your own?</Question>
         <WorkEnvironmentsGroup>
@@ -143,18 +129,15 @@ const ProfileView = (): ReactElement => {
             </WorkEnvironmentCard>
           ))}
         </WorkEnvironmentsGroup>
-        <StyledButton primary onClick={onBeginAssessmentClick}>
+        <StyledButton
+          variant={BUTTON_VARIANT.OUTLINE}
+          onClick={onBeginAssessmentClick}
+        >
           Begin Assessment
         </StyledButton>
       </Card>
-    </ProfileViewWrapper>
+    </ViewWrapper>
   );
 };
 
-const WrappedProfileView = (): ReactElement => (
-  <WorkEnvironmentContextProvider>
-    <ProfileView />
-  </WorkEnvironmentContextProvider>
-);
-
-export default WrappedProfileView;
+export default ProfileView;

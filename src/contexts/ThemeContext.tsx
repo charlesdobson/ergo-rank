@@ -27,7 +27,7 @@ const ThemeContext = createContext<IThemeProvider>({
 });
 
 interface IThemeContextProviderProps {
-  children: ReactNode[];
+  children: ReactNode | ReactNode[];
   initialState?: IThemeContext;
 }
 export const ThemeContextProvider = ({

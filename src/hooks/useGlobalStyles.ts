@@ -53,6 +53,18 @@ const COLORS: TColors = {
     '#3730A3',
     '#312E81',
   ],
+  red: [
+    '#FFF1F2',
+    '#FFE4E6',
+    '#FECDD3',
+    '#FDA4AF',
+    '#FB7185',
+    '#F43F5E',
+    '#E11D48',
+    '#BE123C',
+    '#9F1239',
+    '#881337',
+  ],
 };
 
 const useGlobalStyles = (): SerializedStyles => {

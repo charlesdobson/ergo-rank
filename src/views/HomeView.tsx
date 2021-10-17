@@ -140,9 +140,7 @@ const HomeView = (): ReactElement => {
           <strong>Take the test</strong>, make some <strong>adjustments</strong>
           , and see your <strong>ergonomic ranking</strong> climb!
         </span>
-        <Button primary onClick={onButtonClick}>
-          Get Started
-        </Button>
+        <Button onClick={onButtonClick}>Get Started</Button>
       </Description>
       {!isMobile && <StyledDots />}
     </HomeViewWrapper>

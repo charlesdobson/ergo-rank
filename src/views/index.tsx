@@ -5,9 +5,14 @@ import { Switch, Route } from 'react-router-dom';
 import { useGlobalStyles } from 'hooks';
 import { Topbar } from 'components';
 import { ROUTE } from 'constants/routes';
-import { ThemeContextProvider } from 'contexts';
+import {
+  AssessmentContextProvider,
+  ThemeContextProvider,
+  WorkEnvironmentContextProvider,
+} from 'contexts';
 import HomeView from './HomeView';
 import ProfileView from './ProfileView';
+import AssessmentView from './AssessmentView';
 
 const ViewsWrapper = styled.div`
   height: 100vh;
@@ -26,7 +31,11 @@ interface IGlobalContextProvidersProps {
   children: React.ReactNode[];
 }
 const GlobalContextProviders = ({ children }: IGlobalContextProvidersProps) => (
-  <ThemeContextProvider>{children}</ThemeContextProvider>
+  <ThemeContextProvider>
+    <WorkEnvironmentContextProvider>
+      <AssessmentContextProvider>{children}</AssessmentContextProvider>
+    </WorkEnvironmentContextProvider>
+  </ThemeContextProvider>
 );
 
 const Views = (): ReactElement => {
@@ -44,6 +53,9 @@ const Views = (): ReactElement => {
             </Route>
             <Route path={ROUTE.PROFILE}>
               <ProfileView />
+            </Route>
+            <Route path={ROUTE.TEST}>
+              <AssessmentView />
             </Route>
           </Switch>
         </RouteWrapper>
