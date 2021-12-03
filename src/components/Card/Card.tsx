@@ -19,6 +19,7 @@ const Card = styled.div`
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+  row-gap: 2rem;
 `;
 
 export default Card;

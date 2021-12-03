@@ -8,7 +8,7 @@ import { QUESTIONS_MAP, useAssessmentContext } from 'contexts';
 const Wrapper = styled.div`
   display: flex;
   flex-flow: column nowrap;
-  width: 40%;
+  width: 36%;
 `;
 
 const QuestionGroup = (): ReactElement => {
